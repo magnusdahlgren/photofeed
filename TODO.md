@@ -1,0 +1,36 @@
+# TODO
+
+## 📋 Admin Features
+
+- [x] Add image uploader to Admin page
+- [x] Add auto-resize of photos when uploading
+- [ ] Add photo preview modal to Admin page
+
+## ⏩ Performance
+
+- [ ] Add different photo sizes for feed (small) and detail page (large) to reduce bandwidth
+- [ ] Lazy loading the photo feed (once you have more than 30 photos)
+
+## ✨ Visual Polish
+
+- [ ] Add a nicer "Are you sure?" dialogue when deleting photos
+- [x] Remove page reload after uploading a photo
+- [x] Remove page reload after deleting a photo
+- [ ] Spinner when uploading photos
+- [ ] Add standardised error callouts
+- [ ] Add smooth transitions for adding/removing photos (e.g. with framer-motion)
+
+## 🐛 Bugs
+
+## 🛠 Refactoring
+
+- [x] Remove inline styles in /login/page.tsx
+
+## 💡 Nice to have
+
+## 🧹 Maintenance
+
+- [x] Add Prettier code formatter
+- [ ] Create GitHub repo
+- [ ] Add automated tests
+- [ ] Use something like CodeRabbit (or another tool) to help with solo code reviews
