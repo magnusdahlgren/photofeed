@@ -1,0 +1,106 @@
+/* ==================== */
+/* 3. Header            */
+/* ==================== */
+
+header {
+  padding: 6rem 2rem;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 4rem;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #333;
+}
+
+/* ==================== */
+/* 4. Photo Feed        */
+/* ==================== */
+
+ul.photo-feed {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 2rem;
+  list-style: none;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 2rem 5rem 2rem;
+}
+
+.photo-feed li {
+  display: block;
+  list-style-type: none;
+}
+
+.photo-feed img {
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+  transform: translateY(1rem);
+  animation: moveIn 0.6s ease forwards;
+}
+
+.photo-feed a:hover img {
+  opacity: 80%;
+}
+
+@keyframes moveIn {
+  to {
+    transform: none;
+  }
+}
+
+/* ==================== */
+/* 5. Photo Detail Page */
+/* ==================== */
+
+.photo-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  max-width: 100vw;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.photo-wrapper img {
+  max-height: 95vh;
+  max-width: 95%;
+  height: auto;
+  width: auto;
+  object-fit: contain;
+  border-radius: 0.5rem;
+  opacity: 0;
+  animation: fadeIn 0.6s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.back-button {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  width: 4rem;
+  height: 4rem;
+  background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgZmlsbD0ibm9uZSIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEwLjczMjcgMTkuNzkwNUMxMS4wMzI2IDIwLjA3NjIgMTEuNTA3NCAyMC4wNjQ2IDExLjc5MzEgMTkuNzY0N0MxMi4wNzg3IDE5LjQ2NDggMTIuMDY3MiAxOC45OSAxMS43NjczIDE4LjcwNDNMNS41MTU4NyAxMi43NDk3TDIwLjI1IDEyLjc0OTdDMjAuNjY0MiAxMi43NDk3IDIxIDEyLjQxMzkgMjEgMTEuOTk5N0MyMSAxMS41ODU1IDIwLjY2NDIgMTEuMjQ5NyAyMC4yNSAxMS4yNDk3TDUuNTE1NzcgMTEuMjQ5N0wxMS43NjczIDUuMjk1MDJDMTIuMDY3MiA1LjAwOTMzIDEyLjA3ODcgNC41MzQ2IDExLjc5MzEgNC4yMzQ2N0MxMS41MDc0IDMuOTM0NzUgMTEuMDMyNiAzLjkyMzIgMTAuNzMyNyA0LjIwODg5TDMuMzEzNzkgMTEuMjc1NkMzLjE0NDg2IDExLjQzNjUgMy4wNDQ5MSAxMS42NDE3IDMuMDEzOTMgMTEuODU1MUMzLjAwNDc5IDExLjkwMTkgMyAxMS45NTAzIDMgMTEuOTk5N0MzIDEyLjA0OTMgMy4wMDQ4MSAxMi4wOTc3IDMuMDEzOTggMTIuMTQ0NkMzLjA0NTAyIDEyLjM1NzkgMy4xNDQ5NiAxMi41NjMgMy4zMTM3OSAxMi43MjM4TDEwLjczMjcgMTkuNzkwNVoiIGZpbGw9IiMyMTIxMjEiLz48L3N2Zz4=");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+  z-index: 1;
+}
+
+.back-button:hover {
+  opacity: 1;
+}
