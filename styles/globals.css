@@ -101,6 +101,15 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+body:has(dialog[open]) {
+  overflow: hidden;
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.1); /* semi-transparent black */
+  backdrop-filter: blur(8px);
+}
+
 .message {
   padding: 1rem;
   margin: 1rem auto;
