@@ -2,7 +2,7 @@ import Link from "next/link";
 import { getPhotoUrl } from "@/lib/photos";
 
 interface Params {
-  params: { id: string };
+  readonly params: { readonly id: string };
 }
 
 export default function PhotoPage({ params }: Params) {

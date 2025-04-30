@@ -42,7 +42,7 @@ export default function AdminPage() {
         .order('created_at', { ascending: false });
 
       if (!error) {
-        setPhotos(data || []);
+        setPhotos(data ?? []);
       } else {
         setError(true);
       }
