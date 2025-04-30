@@ -7,6 +7,7 @@ import { getPhotoUrl, formatDateUK } from '@/lib/photos';
 import { AddPhotoButton } from './AddPhotoButton';
 import { SignOutButton } from './SignOutButton';
 import { DeletePhotoButton } from './DeletePhotoButton';
+import { PhotoModal } from './PhotoModal';
 
 interface Photo {
   id: string;
@@ -14,6 +15,7 @@ interface Photo {
 }
 
 export default function AdminPage() {
+  const [previewPhotoId, setPreviewPhotoId] = useState<string | null>(null);
   const [photos, setPhotos] = useState<Photo[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -70,10 +72,15 @@ export default function AdminPage() {
       <div className="photo-list">
         {photos.map((photo) => (
           <div key={photo.id} className="photo-row">
-            <div className="thumbnail-container">
+            <button
+              className="thumbnail-container"
+              onClick={() => setPreviewPhotoId(photo.id)}
+              aria-label="Preview photo"
+            >
               <img src={getPhotoUrl(photo.id)} alt="" className="thumbnail" />
               <div className="thumbnail-overlay" />
-            </div>
+            </button>
+
             <div className="photo-id">{photo.id}</div>
             <div className="photo-date">{formatDateUK(photo.created_at)}</div>
             <DeletePhotoButton id={photo.id} setPhotos={setPhotos} />
@@ -90,6 +97,7 @@ export default function AdminPage() {
       </nav>
       <AddPhotoButton setPhotos={setPhotos} />
       {content}
+      {previewPhotoId && <PhotoModal id={previewPhotoId} onClose={() => setPreviewPhotoId(null)} />}
     </main>
   );
 }

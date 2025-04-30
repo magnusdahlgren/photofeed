@@ -31,6 +31,7 @@
 ## 🧹 Maintenance
 
 - [x] Add Prettier code formatter
-- [ ] Create GitHub repo
-- [ ] Add automated tests
-- [ ] Use something like CodeRabbit (or another tool) to help with solo code reviews
+- [x] Create GitHub repo
+- [x] SonarQube code reviews
+- [ ] CodeRabbit PR summaries
+- [ ] Add automated tests + re-enable SonarQube code coverage check
