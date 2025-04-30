@@ -8,14 +8,14 @@ interface DeletePhotoButtonProps {
   setPhotos: React.Dispatch<React.SetStateAction<Photo[]>>;
 }
 
-export function DeletePhotoButton({ id, setPhotos }: DeletePhotoButtonProps) {
+export function DeletePhotoButton({ id, setPhotos }: Readonly<DeletePhotoButtonProps>) {
   async function handleDeletePhoto() {
     const confirmed = window.confirm(`Are you sure you want to delete photo ${id}?`);
     if (!confirmed) {
       return;
     }
 
-    const { data, error } = await supabase.from('photos').delete().eq('id', id);
+    const { error } = await supabase.from('photos').delete().eq('id', id);
 
     if (error) {
       console.error('Error deleting photo:', error);

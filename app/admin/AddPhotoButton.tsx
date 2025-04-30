@@ -9,7 +9,7 @@ interface AddPhotoButtonProps {
   setPhotos: React.Dispatch<React.SetStateAction<Photo[]>>;
 }
 
-export function AddPhotoButton({ setPhotos }: AddPhotoButtonProps) {
+export function AddPhotoButton({ setPhotos }: Readonly<AddPhotoButtonProps>) {
   async function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
     if (!file) {
@@ -28,7 +28,7 @@ export function AddPhotoButton({ setPhotos }: AddPhotoButtonProps) {
         useWebWorker: true,
       });
 
-      const { data: uploadData, error: uploadError } = await supabase.storage
+      const { error: uploadError } = await supabase.storage
         .from('photos')
         .upload(filePath, compressedFile, {
           cacheControl: '3600',
@@ -62,7 +62,7 @@ export function AddPhotoButton({ setPhotos }: AddPhotoButtonProps) {
 
   return (
     <label className="primary-button add-photo-button">
-      + Add photo
+      <span>+ Add photo</span>
       <input type="file" accept="image/*" onChange={handleFileChange} style={{ display: 'none' }} />
     </label>
   );

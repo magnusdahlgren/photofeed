@@ -18,7 +18,7 @@ export function randomPhotoId(length: number) {
   let id = "";
 
   for (let i = 0; i < length; i++) {
-    id += characters[Math.floor(Math.random() * characters.length)];
+    id += characters[randomInt(characters.length)];
   }
 
   return id;
