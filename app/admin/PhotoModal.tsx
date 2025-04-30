@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import { getPhotoUrl } from '@/lib/photos';
 
 interface PhotoModalProps {
@@ -11,10 +11,21 @@ interface PhotoModalProps {
 export function PhotoModal({ id, onClose }: Readonly<PhotoModalProps>) {
   const dialogRef = useRef<HTMLDialogElement>(null);
 
-  // Open the dialog when the component mounts
-  if (typeof window !== 'undefined' && dialogRef.current && !dialogRef.current.open) {
-    dialogRef.current.showModal();
-  }
+  useEffect(() => {
+    if (dialogRef.current && !dialogRef.current.open) {
+      dialogRef.current.showModal();
+    }
+
+    const dialog = dialogRef.current;
+    if (!dialog) return;
+
+    const handleClose = () => {
+      onClose();
+    };
+
+    dialog.addEventListener('close', handleClose);
+    return () => dialog.removeEventListener('close', handleClose);
+  }, [onClose]);
 
   return (
     <dialog ref={dialogRef} className="photo-dialog" onClose={onClose}>
