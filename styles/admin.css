@@ -149,3 +149,44 @@ nav {
 .delete-photo-button:hover {
   opacity: 1;
 }
+
+/* ==================== */
+/* 6. Photo Modal       */
+/* ==================== */
+
+.photo-dialog {
+  border: none;
+  overflow: hidden;
+  padding: 0;
+  border-radius: 12px;
+  background: none;
+}
+
+.modal-photo {
+  max-height: 90vh;
+  display: block;
+}
+
+.photo-dialog .close-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 3rem;
+  height: 3rem;
+  background-color: rgb(0 0 0 / 0.5);
+  background-image: url("data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjUxMnB4IiBpZD0iTGF5ZXJfMSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyIDUxMjsiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHdpZHRoPSI1MTJweCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBmaWxsPSJ3aGl0ZSIgZD0iTTQzNy41LDM4Ni42TDMwNi45LDI1NmwxMzAuNi0xMzAuNmMxNC4xLTE0LjEsMTQuMS0zNi44LDAtNTAuOWMtMTQuMS0xNC4xLTM2LjgtMTQuMS01MC45LDBMMjU2LDIwNS4xTDEyNS40LDc0LjUgIGMtMTQuMS0xNC4xLTM2LjgtMTQuMS01MC45LDBjLTE0LjEsMTQuMS0xNC4xLDM2LjgsMCw1MC45TDIwNS4xLDI1Nkw3NC41LDM4Ni42Yy0xNC4xLDE0LjEtMTQuMSwzNi44LDAsNTAuOSAgYzE0LjEsMTQuMSwzNi44LDE0LjEsNTAuOSwwTDI1NiwzMDYuOWwxMzAuNiwxMzAuNmMxNC4xLDE0LjEsMzYuOCwxNC4xLDUwLjksMEM0NTEuNSw0MjMuNCw0NTEuNSw0MDAuNiw0MzcuNSwzODYuNnoiLz48L3N2Zz4=");
+  background-size: 2rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.photo-dialog .close-button:hover {
+  background-color: rgb(0 0 0 / 0.7);
+}
+
+.photo-dialog .close-button:focus-visible {
+  outline: none;
+  box-shadow: none;
+}

@@ -29,9 +29,11 @@ export function PhotoModal({ id, onClose }: Readonly<PhotoModalProps>) {
 
   return (
     <dialog ref={dialogRef} className="photo-dialog" onClose={onClose}>
-      <button className="close-button" onClick={() => dialogRef.current?.close()}>
-        ×
-      </button>
+      <button
+        className="close-button"
+        aria-label="Close preview"
+        onClick={() => dialogRef.current?.close()}
+      />
       <img src={getPhotoUrl(id)} alt="" className="modal-photo" />
     </dialog>
   );
