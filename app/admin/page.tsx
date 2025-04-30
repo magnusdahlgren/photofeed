@@ -90,6 +90,7 @@ export default function AdminPage() {
       </nav>
       <AddPhotoButton setPhotos={setPhotos} />
       {content}
+      {previewPhotoId && <PhotoModal id={previewPhotoId} onClose={() => setPreviewPhotoId(null)} />}
     </main>
   );
 }

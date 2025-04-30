@@ -1,17 +1,27 @@
+'use client';
+
+import { useRef } from 'react';
 import { getPhotoUrl } from '@/lib/photos';
-import Link from 'next/link';
 
 interface PhotoModalProps {
   id: string;
+  onClose: () => void;
 }
 
-export function PhotoModal({ id }: Readonly<PhotoModalProps>) {
+export function PhotoModal({ id, onClose }: Readonly<PhotoModalProps>) {
+  const dialogRef = useRef<HTMLDialogElement>(null);
+
+  // Open the dialog when the component mounts
+  if (typeof window !== 'undefined' && dialogRef.current && !dialogRef.current.open) {
+    dialogRef.current.showModal();
+  }
+
   return (
-    <div className="photo-modal">
-      <Link href="/" className="back-button" aria-label="Go back"></Link>
-      <div className="photo-wrapper">
-        <img src={getPhotoUrl(id)} alt="" className="fadeIn" />
-      </div>
-    </div>
+    <dialog ref={dialogRef} className="photo-dialog" onClose={onClose}>
+      <button className="close-button" onClick={() => dialogRef.current?.close()}>
+        ×
+      </button>
+      <img src={getPhotoUrl(id)} alt="" className="modal-photo" />
+    </dialog>
   );
 }
