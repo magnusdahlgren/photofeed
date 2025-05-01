@@ -13,7 +13,6 @@ interface AddPhotoButtonProps {
 export function AddPhotoButton({ setPhotos, setAlertMessage }: Readonly<AddPhotoButtonProps>) {
   async function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
     try {
-      setAlertMessage('Test!');
       const file = e.target.files?.[0];
 
       if (!file) {

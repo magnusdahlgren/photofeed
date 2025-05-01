@@ -165,6 +165,32 @@ dialog::backdrop {
   font-weight: 500;
 }
 
+.alert-dialog .dialog-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
 .alert-dialog button {
-  margin: 2rem auto 0rem auto;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background: black;
+  color: white;
+  transition: background 0.2s ease;
+  min-width: 100px;
+  margin: 0;
+}
+
+.alert-dialog button:hover {
+  background: #222;
+}
+
+.alert-dialog button:focus {
+  outline: 2px solid #888;
+  outline-offset: 2px;
 }
