@@ -23,7 +23,7 @@ export default async function Home() {
           <li key={photo.id}>
             <Link href={`/p/${photo.id}`}>
               <img
-                src={getPhotoUrl(photo.id)}
+                src={getPhotoUrl(photo.id, "small")}
                 alt=""
                 className="fadeIn"
                 loading="lazy"

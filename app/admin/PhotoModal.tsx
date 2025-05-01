@@ -34,7 +34,7 @@ export function PhotoModal({ id, onClose }: Readonly<PhotoModalProps>) {
         aria-label="Close preview"
         onClick={() => dialogRef.current?.close()}
       />
-      <img src={getPhotoUrl(id)} alt="" className="modal-photo" />
+      <img src={getPhotoUrl(id, 'large')} alt="" className="modal-photo" />
     </dialog>
   );
 }

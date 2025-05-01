@@ -1,8 +1,8 @@
 'use client';
 
 import { supabase } from '@/lib/supabase';
-import { randomPhotoId } from '@/lib/photos';
 import { Photo } from '@/types/photo';
+import { randomPhotoId, getPhotoFileName, getPhotoMaxSize, imageSizes } from '@/lib/photos';
 import imageCompression from 'browser-image-compression';
 
 interface AddPhotoButtonProps {
@@ -18,26 +18,30 @@ export function AddPhotoButton({ setPhotos }: Readonly<AddPhotoButtonProps>) {
     }
 
     const id = randomPhotoId(7);
-    const filePath = `${id}.jpg`;
 
     try {
-      const compressedFile = await imageCompression(file, {
-        maxWidthOrHeight: 1080,
-        maxSizeMB: 0.2,
-        initialQuality: 0.8,
-        useWebWorker: true,
-      });
+      for (const size of imageSizes) {
+        const maxDimension = getPhotoMaxSize(size);
+        const filePath = getPhotoFileName(id, size);
 
-      const { error: uploadError } = await supabase.storage
-        .from('photos')
-        .upload(filePath, compressedFile, {
-          cacheControl: '3600',
-          upsert: false, // Do not overwrite if already exists
+        const compressedFile = await imageCompression(file, {
+          maxWidthOrHeight: maxDimension,
+          maxSizeMB: 0.2,
+          initialQuality: 0.8,
+          useWebWorker: true,
         });
 
-      if (uploadError) {
-        console.error('Error uploading file:', uploadError);
-        alert('Failed to upload photo');
+        const { error: uploadError } = await supabase.storage
+          .from('photos')
+          .upload(filePath, compressedFile, {
+            cacheControl: '3600',
+            upsert: false,
+          });
+
+        if (uploadError) {
+          console.error('Error uploading file:', uploadError);
+          alert('Failed to upload photo');
+        }
       }
 
       const { data: dbData, error: dbError } = await supabase
