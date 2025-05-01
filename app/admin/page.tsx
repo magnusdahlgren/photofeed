@@ -8,6 +8,7 @@ import { AddPhotoButton } from './AddPhotoButton';
 import { SignOutButton } from './SignOutButton';
 import { DeletePhotoButton } from './DeletePhotoButton';
 import { PhotoModal } from './PhotoModal';
+import { AlertDialog } from '@/components/AlertDialog';
 
 interface Photo {
   id: string;
@@ -19,6 +20,8 @@ export default function AdminPage() {
   const [photos, setPhotos] = useState<Photo[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const [alertMessage, setAlertMessage] = useState<string | null>(null);
+  const [photoToDelete, setPhotoToDelete] = useState<string | null>(null);
 
   const router = useRouter();
 
@@ -83,7 +86,7 @@ export default function AdminPage() {
 
             <div className="photo-id">{photo.id}</div>
             <div className="photo-date">{formatDateUK(photo.created_at)}</div>
-            <DeletePhotoButton id={photo.id} setPhotos={setPhotos} />
+            <DeletePhotoButton id={photo.id} onRequestDelete={(id) => setPhotoToDelete(id)} />
           </div>
         ))}
       </div>
@@ -95,9 +98,27 @@ export default function AdminPage() {
       <nav>
         <SignOutButton />
       </nav>
-      <AddPhotoButton setPhotos={setPhotos} />
+      <AddPhotoButton setPhotos={setPhotos} setAlertMessage={setAlertMessage} />
       {content}
       {previewPhotoId && <PhotoModal id={previewPhotoId} onClose={() => setPreviewPhotoId(null)} />}
+      {alertMessage && <AlertDialog message={alertMessage} onClose={() => setAlertMessage(null)} />}
+      {photoToDelete && (
+        <AlertDialog
+          message="Are you sure you want to delete this photo?"
+          onClose={() => setPhotoToDelete(null)}
+          onConfirm={async () => {
+            const { error } = await supabase.from('photos').delete().eq('id', photoToDelete);
+
+            if (error) {
+              setAlertMessage('Failed to delete photo.');
+            } else {
+              setPhotos((prev) => prev.filter((p) => p.id !== photoToDelete));
+            }
+
+            setPhotoToDelete(null);
+          }}
+        />
+      )}
     </main>
   );
 }

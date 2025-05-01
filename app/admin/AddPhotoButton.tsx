@@ -7,9 +7,10 @@ import imageCompression from 'browser-image-compression';
 
 interface AddPhotoButtonProps {
   setPhotos: React.Dispatch<React.SetStateAction<Photo[]>>;
+  setAlertMessage: React.Dispatch<React.SetStateAction<string | null>>;
 }
 
-export function AddPhotoButton({ setPhotos }: Readonly<AddPhotoButtonProps>) {
+export function AddPhotoButton({ setPhotos, setAlertMessage }: Readonly<AddPhotoButtonProps>) {
   async function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
     try {
       const file = e.target.files?.[0];
@@ -56,10 +57,11 @@ export function AddPhotoButton({ setPhotos }: Readonly<AddPhotoButtonProps>) {
       const newPhoto = dbData?.[0];
       if (newPhoto) {
         setPhotos((prevPhotos) => [newPhoto, ...prevPhotos]);
+        setAlertMessage(null);
       }
     } catch (err) {
       const message = err instanceof Error ? err.message : 'Something went wrong';
-      alert(message);
+      setAlertMessage(message);
     }
   }
 
