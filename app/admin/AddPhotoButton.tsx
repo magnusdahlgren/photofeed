@@ -11,20 +11,21 @@ interface AddPhotoButtonProps {
 
 export function AddPhotoButton({ setPhotos }: Readonly<AddPhotoButtonProps>) {
   async function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
-    const file = e.target.files?.[0];
-    if (!file) {
-      alert('No file selected');
-      return;
-    }
-
-    const id = randomPhotoId(7);
-
     try {
+      const file = e.target.files?.[0];
+
+      if (!file) {
+        throw new Error('No file selected');
+      }
+
+      const id = randomPhotoId(7);
+
       for (const size of imageSizes) {
         const maxDimension = getPhotoMaxSize(size);
         const filePath = getPhotoFileName(id, size);
+        let compressedFile: File;
 
-        const compressedFile = await imageCompression(file, {
+        compressedFile = await imageCompression(file, {
           maxWidthOrHeight: maxDimension,
           maxSizeMB: 0.2,
           initialQuality: 0.8,
@@ -39,8 +40,7 @@ export function AddPhotoButton({ setPhotos }: Readonly<AddPhotoButtonProps>) {
           });
 
         if (uploadError) {
-          console.error('Error uploading file:', uploadError);
-          alert('Failed to upload photo');
+          throw new Error(`Error uploading file ${filePath}`);
         }
       }
 
@@ -50,17 +50,16 @@ export function AddPhotoButton({ setPhotos }: Readonly<AddPhotoButtonProps>) {
         .select();
 
       if (dbError) {
-        console.error('Error adding photo:', dbError);
-        alert('Failed to add photo');
-      } else {
-        const newPhoto = dbData?.[0];
-        if (newPhoto) {
-          setPhotos((prevPhotos) => [newPhoto, ...prevPhotos]);
-        }
+        throw new Error(`Failed to add photo ${id} to DB`);
+      }
+
+      const newPhoto = dbData?.[0];
+      if (newPhoto) {
+        setPhotos((prevPhotos) => [newPhoto, ...prevPhotos]);
       }
     } catch (err) {
-      console.error('Compression failed:', err);
-      alert('Failed to process photo');
+      const message = err instanceof Error ? err.message : 'Something went wrong';
+      alert(message);
     }
   }
 
