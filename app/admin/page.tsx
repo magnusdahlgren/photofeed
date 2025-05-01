@@ -8,6 +8,7 @@ import { AddPhotoButton } from './AddPhotoButton';
 import { SignOutButton } from './SignOutButton';
 import { DeletePhotoButton } from './DeletePhotoButton';
 import { PhotoModal } from './PhotoModal';
+import { AlertDialog } from '@/components/AlertDialog';
 
 interface Photo {
   id: string;
@@ -19,6 +20,7 @@ export default function AdminPage() {
   const [photos, setPhotos] = useState<Photo[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const [alertMessage, setAlertMessage] = useState<string | null>(null);
 
   const router = useRouter();
 
@@ -95,9 +97,10 @@ export default function AdminPage() {
       <nav>
         <SignOutButton />
       </nav>
-      <AddPhotoButton setPhotos={setPhotos} />
+      <AddPhotoButton setPhotos={setPhotos} setAlertMessage={setAlertMessage} />
       {content}
       {previewPhotoId && <PhotoModal id={previewPhotoId} onClose={() => setPreviewPhotoId(null)} />}
+      {alertMessage && <AlertDialog message={alertMessage} onClose={() => setAlertMessage(null)} />}
     </main>
   );
 }
