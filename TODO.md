@@ -5,7 +5,9 @@
 - [x] Add image uploader to Admin page
 - [x] Add auto-resize of photos when uploading
 - [x] Add photo preview modal to Admin page
-- [ ] Better error messages and progress indication
+- [x] Better error messages when adding new photo
+- [ ] Show toast instead of alert when there is an error
+- [ ] Better progress indication
 
 ## ⏩ Performance
 
