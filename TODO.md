@@ -4,7 +4,7 @@
 
 - [x] Add image uploader to Admin page
 - [x] Add auto-resize of photos when uploading
-- [ ] Add photo preview modal to Admin page
+- [x] Add photo preview modal to Admin page
 
 ## ⏩ Performance
 
