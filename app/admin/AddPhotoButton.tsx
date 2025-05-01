@@ -11,21 +11,20 @@ interface AddPhotoButtonProps {
 
 export function AddPhotoButton({ setPhotos }: Readonly<AddPhotoButtonProps>) {
   async function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
-    const file = e.target.files?.[0];
-    if (!file) {
-      alert('No file selected');
-      return;
-    }
+    try {
+      const file = e.target.files?.[0];
 
-    const id = randomPhotoId(7);
-    let errorMessage: string | null = null;
+      if (!file) {
+        throw new Error('No file selected');
+      }
 
-    for (const size of imageSizes) {
-      const maxDimension = getPhotoMaxSize(size);
-      const filePath = getPhotoFileName(id, size);
-      let compressedFile: File;
+      const id = randomPhotoId(7);
 
-      try {
+      for (const size of imageSizes) {
+        const maxDimension = getPhotoMaxSize(size);
+        const filePath = getPhotoFileName(id, size);
+        let compressedFile: File;
+
         compressedFile = await imageCompression(file, {
           maxWidthOrHeight: maxDimension,
           maxSizeMB: 0.2,
@@ -41,32 +40,26 @@ export function AddPhotoButton({ setPhotos }: Readonly<AddPhotoButtonProps>) {
           });
 
         if (uploadError) {
-          errorMessage = `Error uploading file ${filePath}`;
-          break;
+          throw new Error(`Error uploading file ${filePath}`);
         }
-      } catch {
-        errorMessage = `Error compressing image ${id} (${size})`;
-        break;
       }
-    }
 
-    if (!errorMessage) {
       const { data: dbData, error: dbError } = await supabase
         .from('photos')
         .insert([{ id }])
         .select();
 
       if (dbError) {
-        errorMessage = `Failed to add photo ${id} to DB`;
-      } else {
-        const newPhoto = dbData?.[0];
-        if (newPhoto) {
-          setPhotos((prevPhotos) => [newPhoto, ...prevPhotos]);
-        }
+        throw new Error(`Failed to add photo ${id} to DB`);
       }
-    }
-    if (errorMessage) {
-      alert(errorMessage);
+
+      const newPhoto = dbData?.[0];
+      if (newPhoto) {
+        setPhotos((prevPhotos) => [newPhoto, ...prevPhotos]);
+      }
+    } catch (err) {
+      const message = err instanceof Error ? err.message : 'Something went wrong';
+      alert(message);
     }
   }
 
