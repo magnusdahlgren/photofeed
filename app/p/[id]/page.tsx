@@ -12,7 +12,7 @@ export default function PhotoPage({ params }: Params) {
     <main>
       <Link href="/" className="back-button" aria-label="Go back"></Link>
       <div className="photo-wrapper">
-        <img src={getPhotoUrl(id)} alt="" className="fadeIn" />
+        <img src={getPhotoUrl(id, "large")} alt="" className="fadeIn" />
       </div>
     </main>
   );

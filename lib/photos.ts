@@ -1,5 +1,24 @@
-export function getPhotoUrl(id: string): string {
-  return `${process.env.NEXT_PUBLIC_SUPABASE_STORAGE_URL}/${process.env.NEXT_PUBLIC_SUPABASE_BUCKET}/${id}.jpg`;
+export const imageSizes = ["small", "large"] as const;
+export type ImageSize = (typeof imageSizes)[number];
+
+export function getPhotoUrl(id: string, size: ImageSize = "large"): string {
+  return `${process.env.NEXT_PUBLIC_SUPABASE_STORAGE_URL}/${process.env.NEXT_PUBLIC_SUPABASE_BUCKET}/${getPhotoFileName(id, size)}`;
+}
+
+export function getPhotoFileName(
+  id: string,
+  size: ImageSize = "large"
+): string {
+  return `${id}_${size}.jpg`;
+}
+
+export function getPhotoMaxSize(size: ImageSize = "large") {
+  const sizes = {
+    small: 400,
+    large: 1080,
+  } as const;
+
+  return sizes[size] ?? sizes.large;
 }
 
 export function formatDateUK(dateString: string) {

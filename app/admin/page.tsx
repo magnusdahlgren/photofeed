@@ -77,7 +77,7 @@ export default function AdminPage() {
               onClick={() => setPreviewPhotoId(photo.id)}
               aria-label="Preview photo"
             >
-              <img src={getPhotoUrl(photo.id)} alt="" className="thumbnail" />
+              <img src={getPhotoUrl(photo.id, 'small')} alt="" className="thumbnail" />
               <div className="thumbnail-overlay" />
             </button>
 
