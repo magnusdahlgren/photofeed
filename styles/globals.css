@@ -157,7 +157,7 @@ dialog::backdrop {
   background-color: #fff;
   border: none;
   border-radius: 1rem;
-  padding: 2rem 2rem 2rem 2rem;
+  padding: 2rem;
   max-width: 400px;
   min-width: 300px;
   text-align: center;

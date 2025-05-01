@@ -57,6 +57,7 @@ export function AddPhotoButton({ setPhotos, setAlertMessage }: Readonly<AddPhoto
       const newPhoto = dbData?.[0];
       if (newPhoto) {
         setPhotos((prevPhotos) => [newPhoto, ...prevPhotos]);
+        setAlertMessage(null);
       }
     } catch (err) {
       const message = err instanceof Error ? err.message : 'Something went wrong';

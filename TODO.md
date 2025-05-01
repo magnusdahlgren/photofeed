@@ -6,7 +6,9 @@
 - [x] Add auto-resize of photos when uploading
 - [x] Add photo preview modal to Admin page
 - [x] Better error messages when adding new photo
-- [ ] Show toast instead of alert when there is an error
+- [x] Show custom alert instead of browser alert when there is an error
+- [x] Show custom confirmation alert instead of browser alert when deleting photo
+- [ ] Add keyboard nav for alert (ESC / return)
 - [ ] Better progress indication
 
 ## ⏩ Performance
