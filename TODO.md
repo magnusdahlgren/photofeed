@@ -5,10 +5,11 @@
 - [x] Add image uploader to Admin page
 - [x] Add auto-resize of photos when uploading
 - [x] Add photo preview modal to Admin page
+- [ ] Better error messages and progress indication
 
 ## ⏩ Performance
 
-- [ ] Add different photo sizes for feed (small) and detail page (large) to reduce bandwidth
+- [x] Add different photo sizes for feed (small) and detail page (large) to reduce bandwidth
 - [ ] Lazy loading the photo feed (once you have more than 30 photos)
 
 ## ✨ Visual Polish
@@ -33,5 +34,5 @@
 - [x] Add Prettier code formatter
 - [x] Create GitHub repo
 - [x] SonarQube code reviews
-- [ ] CodeRabbit PR summaries
+- [x] CodeRabbit PR summaries
 - [ ] Add automated tests + re-enable SonarQube code coverage check

@@ -18,13 +18,15 @@ export function AddPhotoButton({ setPhotos }: Readonly<AddPhotoButtonProps>) {
     }
 
     const id = randomPhotoId(7);
+    let errorMessage: string | null = null;
 
-    try {
-      for (const size of imageSizes) {
-        const maxDimension = getPhotoMaxSize(size);
-        const filePath = getPhotoFileName(id, size);
+    for (const size of imageSizes) {
+      const maxDimension = getPhotoMaxSize(size);
+      const filePath = getPhotoFileName(id, size);
+      let compressedFile: File;
 
-        const compressedFile = await imageCompression(file, {
+      try {
+        compressedFile = await imageCompression(file, {
           maxWidthOrHeight: maxDimension,
           maxSizeMB: 0.2,
           initialQuality: 0.8,
@@ -39,28 +41,32 @@ export function AddPhotoButton({ setPhotos }: Readonly<AddPhotoButtonProps>) {
           });
 
         if (uploadError) {
-          console.error('Error uploading file:', uploadError);
-          alert('Failed to upload photo');
+          errorMessage = `Error uploading file ${filePath}`;
+          break;
         }
+      } catch {
+        errorMessage = `Error compressing image ${id} (${size})`;
+        break;
       }
+    }
 
+    if (!errorMessage) {
       const { data: dbData, error: dbError } = await supabase
         .from('photos')
         .insert([{ id }])
         .select();
 
       if (dbError) {
-        console.error('Error adding photo:', dbError);
-        alert('Failed to add photo');
+        errorMessage = `Failed to add photo ${id} to DB`;
       } else {
         const newPhoto = dbData?.[0];
         if (newPhoto) {
           setPhotos((prevPhotos) => [newPhoto, ...prevPhotos]);
         }
       }
-    } catch (err) {
-      console.error('Compression failed:', err);
-      alert('Failed to process photo');
+    }
+    if (errorMessage) {
+      alert(errorMessage);
     }
   }
 
