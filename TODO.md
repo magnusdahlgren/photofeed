@@ -23,6 +23,8 @@
 - [ ] Spinner when uploading photos
 - [ ] Add standardised error callouts
 - [ ] Add smooth transitions for adding/removing photos (e.g. with framer-motion)
+- [ ] Better-looking sign out button (user menu?)
+- [ ] Polish login form design
 
 ## 🐛 Bugs
 
@@ -31,6 +33,10 @@
 - [x] Remove inline styles in /login/page.tsx
 
 ## 💡 Nice to have
+
+- [ ] Delete image files from the bucket when deleting a photo from the db
+- [ ] Give a 404 when /p/[id] doesn't exist in db
+- [ ] Custom 404 page
 
 ## 🧹 Maintenance
 
