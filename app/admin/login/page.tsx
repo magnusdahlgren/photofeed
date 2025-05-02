@@ -8,6 +8,7 @@ export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState(false);
 
   async function handleMagicLink(e: React.FormEvent) {
     e.preventDefault();
@@ -25,6 +26,7 @@ export default function LoginPage() {
       console.error('Magic link error:', error);
       setError('Failed to send magic link.');
     } else {
+      setSuccess(true);
       setMessage('Check your email for the magic link!');
     }
   }
@@ -32,7 +34,13 @@ export default function LoginPage() {
   return (
     <main className="login-main">
       <form className="login-form" onSubmit={handleMagicLink}>
-        <h1>Admin Login</h1>
+        <div className="login-heading">
+          <div
+            className={`login-icon ${success ? 'login-unlocked' : 'login-locked'}`}
+            aria-hidden="true"
+          />
+          <h1 className="sr-only">Admin Login</h1>
+        </div>
 
         <input
           className="email-input"
