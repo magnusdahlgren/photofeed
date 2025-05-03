@@ -5,6 +5,8 @@ import { useState } from 'react';
 import { supabase } from '@/lib/supabase';
 
 export default function LoginPage() {
+  const SHAKE_DURATION_MS = 400;
+  const EMAIL_DELAY_MS = 5000;
   const [email, setEmail] = useState('');
   const [success, setSuccess] = useState(false);
   const [buttonDisabled, setButtonDisabled] = useState(false);
@@ -25,11 +27,11 @@ export default function LoginPage() {
       setTimeout(() => {
         setButtonDisabled(false);
         setShake(true);
-        setTimeout(() => setShake(false), 400);
-      }, 5000);
+        setTimeout(() => setShake(false), SHAKE_DURATION_MS);
+      }, EMAIL_DELAY_MS);
     } else {
       setSuccess(true);
-      setTimeout(() => setButtonDisabled(false), 5000);
+      setTimeout(() => setButtonDisabled(false), EMAIL_DELAY_MS);
     }
   }
 
