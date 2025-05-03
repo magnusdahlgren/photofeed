@@ -36,6 +36,9 @@
   background-size: 6rem;
   background-repeat: no-repeat;
   background-position: center;
+  transition:
+    background-color 0.3s ease,
+    background-image 0.3s ease;
 }
 
 .login-locked {
