@@ -110,6 +110,17 @@ dialog::backdrop {
   backdrop-filter: blur(8px);
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .message {
   padding: 1rem;
   margin: 1rem auto;
@@ -147,6 +158,12 @@ dialog::backdrop {
 .primary-button:hover,
 .alert-dialog button:hover {
   background: #333;
+}
+
+.primary-button:disabled,
+.alert-dialog button:disabled {
+  background-color: #666;
+  cursor: not-allowed;
 }
 
 /* ==================== */
@@ -193,4 +210,33 @@ dialog::backdrop {
 .alert-dialog button:focus {
   outline: 2px solid #888;
   outline-offset: 2px;
+}
+
+/* ==================== */
+/* Visual Effects       */
+/* ==================== */
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-5px);
+  }
+  40% {
+    transform: translateX(5px);
+  }
+  60% {
+    transform: translateX(-5px);
+  }
+  80% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.shake {
+  animation: shake 0.4s ease;
 }
