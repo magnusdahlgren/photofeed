@@ -44,6 +44,7 @@
 
 .login-unlocked {
   background-image: url("data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBmaWxsPSJ3aGl0ZSIgZD0iTTE3IDhWN2MwLTIuNzU3LTIuMjQzLTUtNS01UzcgNC4yNDMgNyA3djNINmMtMS4xMDMgMC0yIC44OTctMiAydjhjMCAxLjEwMy44OTcgMiAyIDJoMTJjMS4xMDMgMCAyLS44OTcgMi0ydi04YzAtMS4xMDMtLjg5Ny0yLTItMkg5VjdjMC0xLjY1NCAxLjM0Ni0zIDMtM3MzIDEuMzQ2IDMgM3YxaDJ6Ii8+PC9zdmc+");
+  background-color: #315a39;
 }
 
 /* ==================== */
