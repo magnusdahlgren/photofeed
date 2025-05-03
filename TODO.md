@@ -24,18 +24,18 @@
 - [ ] Add standardised error callouts
 - [ ] Add smooth transitions for adding/removing photos (e.g. with framer-motion)
 - [ ] Better-looking sign out button (user menu?)
-- [ ] Polish login form design
+- [x] Polish login form design
   - [x] Style input field better (border, fixed-width font)
   - [x] Replace text "Admin login" with padlock icon
   - [ ] Adjust size & padding
-  - [ ] When email sent:
+  - [x] When email sent:
     - [x] Turn icon into unlocked padlock
-    - [ ] Update button to say "Email sent" and disable it for 5 seconds
-    - [ ] After 5 seconds, update button to say "Re-send Email"
-  - [ ] Handle errors (e.g. no such user) more cleanly
-    - [ ] Don't show error
-    - [ ] Keep padlock icon locked
-    - [ ] Disable "Send email" button for 5 seconds
+    - [x] Update button to say "Email sent" and disable it for 5 seconds
+    - [x] After 5 seconds, update button to say "Re-send Email"
+  - [x] Handle errors (e.g. no such user) more cleanly
+    - [x] Don't show error
+    - [x] Keep padlock icon locked
+    - [x] Disable "Send email" button for 5 seconds
 
 ## 🐛 Bugs
 
