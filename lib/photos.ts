@@ -1,3 +1,5 @@
+import { supabase } from "@/lib/supabase";
+
 export const imageSizes = ["small", "large"] as const;
 export type ImageSize = (typeof imageSizes)[number];
 
@@ -38,4 +40,9 @@ export function randomPhotoId(length: number) {
   return Array.from(array)
     .map((n) => characters[n % characters.length])
     .join("");
+}
+
+export async function deletePhoto(id: string): Promise<void> {
+  const { error } = await supabase.from("photos").delete().eq("id", id);
+  if (error) throw new Error(`Failed to delete photo ${id} from DB`);
 }
