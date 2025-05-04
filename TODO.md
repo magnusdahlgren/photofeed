@@ -30,7 +30,7 @@
   - [x] Link to Admin when signed in
   - [ ] Tidy up other icons
   - [x] Update avatar based on signed in user
-  - [ ] Set user avatar letter based on user name
+  - [x] Set user avatar letter based on user name
   - [ ] Add click outside menu to close menu
   - [ ] Move sign in form to modal
   - [ ] Logout should take user back to feed, not sign in form

@@ -8,6 +8,7 @@ import Link from "next/link";
 export function UserMenu() {
   const [isOpen, setIsOpen] = useState(false);
   const [isSignedIn, setIsSignedIn] = useState(false);
+  const [userName, setUserName] = useState("");
 
   useEffect(() => {
     async function checkUser() {
@@ -15,6 +16,7 @@ export function UserMenu() {
         data: { user },
       } = await supabase.auth.getUser();
       setIsSignedIn(!!user);
+      setUserName(user?.email ?? "");
     }
 
     checkUser();
@@ -28,7 +30,7 @@ export function UserMenu() {
         aria-expanded={isOpen}
         onClick={() => setIsOpen(!isOpen)}
       >
-        {isSignedIn && <span>M</span>}
+        {isSignedIn && <span>{userName[0].toUpperCase()}</span>}
       </button>
       {isOpen && (
         <ul className="user-menu">
