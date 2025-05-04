@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
 import { getPhotoUrl } from "@/lib/photos";
+import { UserMenu } from "@/components/UserMenu";
 
 export default async function Home() {
   const { data: photos, error } = await supabase
@@ -40,6 +41,7 @@ export default async function Home() {
       <header>
         <h1>Magnus D</h1>
       </header>
+      <UserMenu />
       {content}
     </main>
   );

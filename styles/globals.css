@@ -169,6 +169,52 @@ dialog::backdrop {
 }
 
 /* ==================== */
+/* User Menu            */
+/* ==================== */
+
+.user-menu-container {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.user-menu-container .avatar {
+  width: 4rem;
+  height: 4rem;
+  background-color: #bbb;
+  border-radius: 100%;
+  font-size: 1.5rem;
+}
+
+.user-menu {
+  position: absolute;
+  top: 5rem;
+  right: 0;
+  background: white;
+  border-radius: 10px;
+  padding: 0.5rem 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  z-index: 100;
+  min-width: 180px;
+}
+
+.user-menu button {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1.25rem;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.user-menu button:hover {
+  background: #f0f0f0;
+}
+
+/* ==================== */
 /* Alerts               */
 /* ==================== */
 
