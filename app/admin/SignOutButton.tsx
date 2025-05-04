@@ -13,9 +13,13 @@ export function SignOutButton() {
       console.error('Error signing out:', error);
       alert('Failed to sign out.');
     } else {
-      router.push('/admin/login');
+      router.push('/');
     }
   }
 
-  return <button className="sign-out-button" aria-label="Sign Out" onClick={handleSignOut} />;
+  return (
+    <button className="sign-out-button" aria-label="Sign Out" onClick={handleSignOut}>
+      Sign out
+    </button>
+  );
 }

@@ -5,10 +5,10 @@ import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 import { getPhotoUrl, formatDateUK, deletePhoto } from '@/lib/photos';
 import { AddPhotoButton } from './AddPhotoButton';
-import { SignOutButton } from './SignOutButton';
 import { DeletePhotoButton } from './DeletePhotoButton';
 import { PhotoModal } from './PhotoModal';
 import { AlertDialog } from '@/components/AlertDialog';
+import { UserMenu } from '@/components/UserMenu';
 
 interface Photo {
   id: string;
@@ -32,7 +32,7 @@ export default function AdminPage() {
       } = await supabase.auth.getUser();
 
       if (!user) {
-        router.push('/admin/login');
+        router.push('/');
       }
     }
 
@@ -107,9 +107,7 @@ export default function AdminPage() {
 
   return (
     <main>
-      <nav>
-        <SignOutButton />
-      </nav>
+      <UserMenu />
       <AddPhotoButton setPhotos={setPhotos} setAlertMessage={setAlertMessage} />
       {content}
       {previewPhotoId && <PhotoModal id={previewPhotoId} onClose={() => setPreviewPhotoId(null)} />}

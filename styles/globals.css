@@ -1,3 +1,7 @@
+/*
+  Icons from: https://www.iconfinder.com/search?q=&family=phosphor-regular
+*/
+
 /* ==================== */
 /* 1. Base Reset        */
 /* ==================== */
@@ -90,6 +94,7 @@ video {
   font: inherit;
   font-size: 100%;
   vertical-align: baseline;
+  background: none;
 }
 
 /* ==================== */
@@ -166,6 +171,102 @@ dialog::backdrop {
   background-color: #555;
   cursor: not-allowed;
   pointer-events: none;
+}
+
+/* ==================== */
+/* User Menu            */
+/* ==================== */
+
+.user-menu-container {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.user-menu-container .avatar {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 100%;
+  font-size: 1.5rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+.user-menu-container .avatar.signed-in {
+  background-color: #4a5568;
+}
+
+.user-menu-container .avatar.signed-in:hover {
+  background-color: #2d3748;
+}
+
+.user-menu-container .avatar.signed-out {
+  background-color: #a0aec0;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjU2IDI1NiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCBmaWxsPSJub25lIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIvPjxjaXJjbGUgY3g9IjEyOCIgY3k9Ijk2IiByPSI2NCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBzdHJva2Utd2lkdGg9IjE2Ii8+PHBhdGggZD0iTTMxLDIxNmExMTIsMTEyLDAsMCwxLDE5NCwwIiBmaWxsPSJub25lIiBzdHJva2U9IndoaXRlIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMTYiLz48L3N2Zz4=");
+  background-size: 2rem;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.user-menu-container .avatar.signed-out:hover {
+  background-color: #718096;
+}
+
+.user-menu {
+  position: absolute;
+  top: 4rem;
+  right: 0;
+  background: white;
+  border-radius: 10px;
+  padding: 0.5rem 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  z-index: 100;
+  min-width: 180px;
+}
+
+.user-menu,
+.user-menu * {
+  box-sizing: border-box;
+}
+
+.user-menu button,
+.user-menu a {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1.25rem;
+  border: none;
+  text-align: left;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.user-menu button:hover,
+.user-menu a:hover {
+  background-color: #f0f0f0;
+}
+
+.sign-in-button {
+  background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pjxzdmcgdmlld0JveD0iMCAwIDI1NiAyNTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3QgZmlsbD0ibm9uZSIgaGVpZ2h0PSIyNTYiIHdpZHRoPSIyNTYiLz48cG9seWxpbmUgZmlsbD0ibm9uZSIgcG9pbnRzPSI5NCAxNzAgMTM2IDEyOCA5NCA4NiIgc3Ryb2tlPSIjMDAwIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMTYiLz48bGluZSBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxNiIgeDE9IjI0IiB4Mj0iMTM2IiB5MT0iMTI4IiB5Mj0iMTI4Ii8+PHBhdGggZD0iTTEzNiw0MGg1NmE4LDgsMCwwLDEsOCw4VjIwOGE4LDgsMCwwLDEtOCw4SDEzNiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDAwIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMTYiLz48L3N2Zz4=");
+  background-size: 1.5rem;
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+}
+
+.sign-out-button {
+  background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pjxzdmcgdmlld0JveD0iMCAwIDI1NiAyNTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3QgZmlsbD0ibm9uZSIgaGVpZ2h0PSIyNTYiIHdpZHRoPSIyNTYiLz48cG9seWxpbmUgZmlsbD0ibm9uZSIgcG9pbnRzPSIxNzQgODYgMjE2IDEyOCAxNzQgMTcwIiBzdHJva2U9IiMwMDAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxNiIvPjxsaW5lIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjE2IiB4MT0iMTA0IiB4Mj0iMjE2IiB5MT0iMTI4IiB5Mj0iMTI4Ii8+PHBhdGggZD0iTTEwNCwyMTZINDhhOCw4LDAsMCwxLTgtOFY0OGE4LDgsMCwwLDEsOC04aDU2IiBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxNiIvPjwvc3ZnPg==");
+  background-size: 1.5rem;
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+}
+
+.admin-button {
+  background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pjxzdmcgdmlld0JveD0iMCAwIDI1NiAyNTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3QgZmlsbD0ibm9uZSIgaGVpZ2h0PSIyNTYiIHdpZHRoPSIyNTYiLz48cG9seWdvbiBmaWxsPSJub25lIiBwb2ludHM9IjEyOCAxNjAgOTYgMTYwIDk2IDEyOCAxOTIgMzIgMjI0IDY0IDEyOCAxNjAiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjE2Ii8+PGxpbmUgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDAwIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMTYiIHgxPSIxNjgiIHgyPSIyMDAiIHkxPSI1NiIgeTI9Ijg4Ii8+PHBhdGggZD0iTTIxNiwxMjB2ODhhOCw4LDAsMCwxLTgsOEg0OGE4LDgsMCwwLDEtOC04VjQ4YTgsOCwwLDAsMSw4LThoODgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjE2Ii8+PC9zdmc+");
+  background-size: 1.5rem;
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
 }
 
 /* ==================== */
