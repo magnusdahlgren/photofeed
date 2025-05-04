@@ -13,7 +13,7 @@ export function SignOutButton() {
       console.error('Error signing out:', error);
       alert('Failed to sign out.');
     } else {
-      router.push('/admin/login');
+      router.push('/');
     }
   }
 

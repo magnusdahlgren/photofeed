@@ -28,13 +28,14 @@
   - [x] Add menu with login/logout
   - [x] Icons for login/logout in menu
   - [x] Link to Admin when signed in
-  - [ ] Tidy up other icons
   - [x] Update avatar based on signed in user
   - [x] Set user avatar letter based on user name
-  - [ ] Add click outside menu to close menu
-  - [ ] Move sign in form to modal
+  - [ ] Tidy up other icons
   - [ ] Logout should take user back to feed, not sign in form
-  - [ ] Keyboard accessibility
+  - [ ] Move sign in form to modal
+- [ ] Add buttons '<' and '>' to step between photos in photo details page
+- [ ] Add click outside menu to close menu
+- [ ] Menu keyboard accessibility
 
 ## 🐛 Bugs
 
