@@ -43,6 +43,15 @@ export function randomPhotoId(length: number) {
 }
 
 export async function deletePhoto(id: string): Promise<void> {
-  const { error } = await supabase.from("photos").delete().eq("id", id);
-  if (error) throw new Error(`Failed to delete photo ${id} from DB`);
+  const { error: dbError } = await supabase
+    .from("photos")
+    .delete()
+    .eq("id", id);
+  if (dbError) throw new Error(`Failed to delete photo ${id} from DB`);
+
+  const filePaths = imageSizes.map((size) => getPhotoFileName(id, size));
+  const { error: storageError } = await supabase.storage
+    .from("photos")
+    .remove(filePaths);
+  if (storageError) throw new Error(`Failed to delete photo files for ${id}`);
 }
