@@ -40,6 +40,7 @@ export default async function Home() {
     <main>
       <header>
         <h1>Magnus D</h1>
+        <UserMenu />
       </header>
       <UserMenu />
       {content}

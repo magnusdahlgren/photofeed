@@ -1,9 +1,24 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { SignOutButton } from "@/app/admin/SignOutButton";
+import { supabase } from "@/lib/supabase";
+import Link from "next/link";
 
 export function UserMenu() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isSignedIn, setIsSignedIn] = useState(false);
+
+  useEffect(() => {
+    async function checkUser() {
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+      setIsSignedIn(!!user);
+    }
+
+    checkUser();
+  }, []);
 
   return (
     <div className="user-menu-container">
@@ -16,16 +31,18 @@ export function UserMenu() {
         M
       </button>
       {isOpen && (
-        <ul className="user-menu" role="menu">
-          <li>
-            <button>Option A</button>
-          </li>
-          <li>
-            <button>Option B</button>
-          </li>
-          <li>
-            <button>Option C</button>
-          </li>
+        <ul className="user-menu">
+          {isSignedIn ? (
+            <li>
+              <SignOutButton />
+            </li>
+          ) : (
+            <li>
+              <Link href="/admin/login/" className="sign-in-button">
+                Login
+              </Link>
+            </li>
+          )}
         </ul>
       )}
     </div>

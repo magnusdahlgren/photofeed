@@ -21,9 +21,15 @@
 - [x] Remove page reload after uploading a photo
 - [x] Remove page reload after deleting a photo
 - [x] Spinner when uploading photos
-- [ ] Add smooth transitions for adding/removing photos (e.g. with framer-motion)
-- [ ] Better-looking sign out button (user menu?)
 - [x] Polish login form design
+- [ ] Add smooth transitions for adding/removing photos (e.g. with framer-motion)
+- [ ] User menu for login/logout
+  - [x] Add avatar
+  - [x] Add menu with login/logout
+  - [ ] Icons for login/logout in menu
+  - [ ] Update avatar based on signed in user
+  - [ ] Move sign in form to modal
+  - [ ] Logout should take user back to feed, not sign in form
 
 ## 🐛 Bugs
 

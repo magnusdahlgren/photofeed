@@ -17,5 +17,9 @@ export function SignOutButton() {
     }
   }
 
-  return <button className="sign-out-button" aria-label="Sign Out" onClick={handleSignOut} />;
+  return (
+    <button className="sign-out-button" aria-label="Sign Out" onClick={handleSignOut}>
+      Sign out
+    </button>
+  );
 }

@@ -61,26 +61,6 @@ nav {
   z-index: 10;
 }
 
-.sign-out-button {
-  width: 2.5rem;
-  height: 2.5rem;
-  margin: 1rem;
-  display: block;
-  background: transparent;
-  border: none;
-  background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pjxzdmcgdmlld0JveD0iMCAwIDMyIDMyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxzdHlsZT4uY2xzLTF7ZmlsbDpub25lO3N0cm9rZTojMDAwO3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2Utd2lkdGg6MnB4O308L3N0eWxlPjwvZGVmcz48dGl0bGUvPjxnIGlkPSJsb2dvdXQiPjxsaW5lIGNsYXNzPSJjbHMtMSIgeDE9IjE1LjkyIiB4Mj0iMjguOTIiIHkxPSIxNiIgeTI9IjE2Ii8+PHBhdGggZD0iTTIzLjkzLDI1djNoLTE2VjRoMTZWN2gyVjNhMSwxLDAsMCwwLTEtMWgtMThhMSwxLDAsMCwwLTEsMVYyOWExLDEsMCwwLDAsMSwxaDE4YTEsMSwwLDAsMCwxLTFWMjVaIi8+PGxpbmUgY2xhc3M9ImNscy0xIiB4MT0iMjguOTIiIHgyPSIyNC45MiIgeTE9IjE2IiB5Mj0iMjAiLz48bGluZSBjbGFzcz0iY2xzLTEiIHgxPSIyOC45MiIgeDI9IjI0LjkyIiB5MT0iMTYiIHkyPSIxMiIvPjxsaW5lIGNsYXNzPSJjbHMtMSIgeDE9IjI0LjkyIiB4Mj0iMjQuOTIiIHkxPSI4LjA5IiB5Mj0iNi4wOSIvPjxsaW5lIGNsYXNzPSJjbHMtMSIgeDE9IjI0LjkyIiB4Mj0iMjQuOTIiIHkxPSIyNiIgeTI9IjI0Ii8+PC9nPjwvc3ZnPg==");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  cursor: pointer;
-  opacity: 0.7;
-  transition: opacity 0.2s ease;
-}
-
-.sign-out-button:hover {
-  opacity: 1;
-}
-
 /* ==================== */
 /* 5. Admin Feed        */
 /* ==================== */
