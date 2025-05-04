@@ -7,7 +7,7 @@
 - [x] Add photo preview modal to Admin page
 - [x] Better error messages when adding new photo
 - [ ] Add keyboard nav for alert (ESC / return)
-- [ ] Better progress indication
+- [x] Better progress indication
 
 ## ⏩ Performance
 
@@ -20,8 +20,7 @@
 - [x] Add a nicer "Are you sure?" dialogue when deleting photos
 - [x] Remove page reload after uploading a photo
 - [x] Remove page reload after deleting a photo
-- [ ] Spinner when uploading photos
-- [ ] Add standardised error callouts
+- [x] Spinner when uploading photos
 - [ ] Add smooth transitions for adding/removing photos (e.g. with framer-motion)
 - [ ] Better-looking sign out button (user menu?)
 - [x] Polish login form design
@@ -32,7 +31,7 @@
 
 - [x] Remove inline styles in /login/page.tsx
 - [ ] Add a proper Photo type for consistency
-- [ ] Move bucket name ("photos") to environment variables
+- [ ] Move bucket name ("photos") to environment variable
 
 ## 💡 Nice to have
 
