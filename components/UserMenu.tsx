@@ -12,14 +12,38 @@ export function UserMenu() {
 
   useEffect(() => {
     async function checkUser() {
-      const {
-        data: { user },
-      } = await supabase.auth.getUser();
-      setIsSignedIn(!!user);
-      setUserName(user?.email ?? "");
+      try {
+        const {
+          data: { user },
+          error,
+        } = await supabase.auth.getUser();
+
+        if (error) {
+          console.error("Error fetching user:", error);
+          setIsSignedIn(false);
+          return;
+        }
+
+        setIsSignedIn(!!user);
+        setUserName(user?.email ?? "");
+      } catch (error) {
+        console.error("Exception when checking authentication:", error);
+        setIsSignedIn(false);
+      }
     }
 
     checkUser();
+
+    // Subscribe to auth state changes
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      setIsSignedIn(!!session?.user);
+      setUserName(session?.user?.email ?? "");
+    });
+
+    // Clean up subscription on unmount
+    return () => subscription.unsubscribe();
   }, []);
 
   return (
@@ -30,7 +54,11 @@ export function UserMenu() {
         aria-expanded={isOpen}
         onClick={() => setIsOpen(!isOpen)}
       >
-        {isSignedIn && <span>{userName[0].toUpperCase()}</span>}
+        {isSignedIn && (
+          <span>
+            {userName && userName.length > 0 ? userName[0].toUpperCase() : "?"}
+          </span>
+        )}
       </button>
       {isOpen && (
         <ul className="user-menu">
