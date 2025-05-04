@@ -24,16 +24,20 @@ export function AddPhotoButton({ setPhotos, setAlertMessage }: Readonly<AddPhoto
           setPhotos((prevPhotos) => [newPhoto, ...prevPhotos]);
           setAlertMessage(null);
         }
-        setIsUploading(false);
       }
     } catch (err) {
       const message = err instanceof Error ? err.message : 'Something went wrong';
       setAlertMessage(message);
+    } finally {
+      setIsUploading(false);
     }
   }
 
   return (
-    <label className={`primary-button add-photo-button ${isUploading ? 'disabled' : ''}`}>
+    <label
+      className={`primary-button add-photo-button ${isUploading ? 'disabled' : ''}`}
+      aria-busy={isUploading}
+    >
       <span>
         {isUploading ? (
           <>

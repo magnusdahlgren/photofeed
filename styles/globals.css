@@ -163,7 +163,7 @@ dialog::backdrop {
 .primary-button:disabled,
 .alert-dialog button:disabled,
 .primary-button.disabled {
-  background-color: #666;
+  background-color: #555;
   cursor: not-allowed;
   pointer-events: none;
 }
