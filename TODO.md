@@ -12,7 +12,7 @@
 ## ⏩ Performance
 
 - [x] Add different photo sizes for feed (small) and detail page (large) to reduce bandwidth
-- [ ] Lazy loading the photo feed (once you have more than 30 photos)
+- [ ] Lazy loading the photo feed (once I have more than 30 photos)
 
 ## ✨ Visual Polish
 
@@ -34,7 +34,7 @@
 
 ## 💡 Nice to have
 
-- [ ] Delete image files from the bucket when deleting a photo from the db
+- [x] Delete image files from the bucket when deleting a photo from the db
 - [ ] Give a 404 when /p/[id] doesn't exist in db
 - [ ] Custom 404 page
 
