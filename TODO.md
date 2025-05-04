@@ -32,6 +32,7 @@
 
 - [x] Remove inline styles in /login/page.tsx
 - [ ] Add a proper Photo type for consistency
+- [ ] Move bucket name ("photos") to environment variables
 
 ## 💡 Nice to have
 
