@@ -26,10 +26,14 @@
 - [ ] User menu for login/logout
   - [x] Add avatar
   - [x] Add menu with login/logout
-  - [ ] Icons for login/logout in menu
+  - [x] Icons for login/logout in menu
+  - [x] Link to Admin when signed in
+  - [ ] Tidy up other icons
   - [ ] Update avatar based on signed in user
+  - [ ] Add click outside menu to close menu
   - [ ] Move sign in form to modal
   - [ ] Logout should take user back to feed, not sign in form
+  - [ ] Keyboard accessibility
 
 ## 🐛 Bugs
 

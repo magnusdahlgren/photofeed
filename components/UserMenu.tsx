@@ -33,9 +33,16 @@ export function UserMenu() {
       {isOpen && (
         <ul className="user-menu">
           {isSignedIn ? (
-            <li>
-              <SignOutButton />
-            </li>
+            <>
+              <li>
+                <Link href="/admin/" className="admin-button">
+                  Admin
+                </Link>
+              </li>
+              <li>
+                <SignOutButton />
+              </li>
+            </>
           ) : (
             <li>
               <Link href="/admin/login/" className="sign-in-button">
