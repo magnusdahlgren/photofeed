@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
-import { getPhotoUrl, formatDateUK } from '@/lib/photos';
+import { getPhotoUrl, formatDateUK, deletePhoto } from '@/lib/photos';
 import { AddPhotoButton } from './AddPhotoButton';
 import { SignOutButton } from './SignOutButton';
 import { DeletePhotoButton } from './DeletePhotoButton';
@@ -93,6 +93,18 @@ export default function AdminPage() {
     );
   }
 
+  async function handleConfirmDelete(photoId: string) {
+    try {
+      await deletePhoto(photoId);
+      setPhotos((prev) => prev.filter((p) => p.id !== photoId));
+    } catch (err) {
+      console.error('Error deleting photo:', err);
+      setAlertMessage('Failed to delete photo');
+    } finally {
+      setPhotoToDelete(null);
+    }
+  }
+
   return (
     <main>
       <nav>
@@ -106,17 +118,7 @@ export default function AdminPage() {
         <AlertDialog
           message="Are you sure you want to delete this photo?"
           onClose={() => setPhotoToDelete(null)}
-          onConfirm={async () => {
-            const { error } = await supabase.from('photos').delete().eq('id', photoToDelete);
-
-            if (error) {
-              setAlertMessage('Failed to delete photo.');
-            } else {
-              setPhotos((prev) => prev.filter((p) => p.id !== photoToDelete));
-            }
-
-            setPhotoToDelete(null);
-          }}
+          onConfirm={async () => handleConfirmDelete(photoToDelete)}
         />
       )}
     </main>
