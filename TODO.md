@@ -31,6 +31,7 @@
 ## 🛠 Refactoring
 
 - [x] Remove inline styles in /login/page.tsx
+- [ ] Add a proper Photo type for consistency
 
 ## 💡 Nice to have
 

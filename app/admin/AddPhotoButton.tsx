@@ -1,9 +1,7 @@
 'use client';
 
-import { supabase } from '@/lib/supabase';
 import { Photo } from '@/types/photo';
-import { randomPhotoId, getPhotoFileName, getPhotoMaxSize, imageSizes } from '@/lib/photos';
-import imageCompression from 'browser-image-compression';
+import { addPhoto } from '@/lib/photos';
 
 interface AddPhotoButtonProps {
   setPhotos: React.Dispatch<React.SetStateAction<Photo[]>>;
@@ -15,49 +13,12 @@ export function AddPhotoButton({ setPhotos, setAlertMessage }: Readonly<AddPhoto
     try {
       const file = e.target.files?.[0];
 
-      if (!file) {
-        throw new Error('No file selected');
-      }
-
-      const id = randomPhotoId(7);
-
-      for (const size of imageSizes) {
-        const maxDimension = getPhotoMaxSize(size);
-        const filePath = getPhotoFileName(id, size);
-        let compressedFile: File;
-
-        compressedFile = await imageCompression(file, {
-          maxWidthOrHeight: maxDimension,
-          maxSizeMB: 0.2,
-          initialQuality: 0.8,
-          useWebWorker: true,
-        });
-
-        const { error: uploadError } = await supabase.storage
-          .from('photos')
-          .upload(filePath, compressedFile, {
-            cacheControl: '3600',
-            upsert: false,
-          });
-
-        if (uploadError) {
-          throw new Error(`Error uploading file ${filePath}`);
+      if (file) {
+        const newPhoto = await addPhoto(file);
+        if (newPhoto) {
+          setPhotos((prevPhotos) => [newPhoto, ...prevPhotos]);
+          setAlertMessage(null);
         }
-      }
-
-      const { data: dbData, error: dbError } = await supabase
-        .from('photos')
-        .insert([{ id }])
-        .select();
-
-      if (dbError) {
-        throw new Error(`Failed to add photo ${id} to DB`);
-      }
-
-      const newPhoto = dbData?.[0];
-      if (newPhoto) {
-        setPhotos((prevPhotos) => [newPhoto, ...prevPhotos]);
-        setAlertMessage(null);
       }
     } catch (err) {
       const message = err instanceof Error ? err.message : 'Something went wrong';

@@ -1,4 +1,6 @@
+import imageCompression from "browser-image-compression";
 import { supabase } from "@/lib/supabase";
+import { Photo } from "@/types/photo";
 
 export const imageSizes = ["small", "large"] as const;
 export type ImageSize = (typeof imageSizes)[number];
@@ -40,6 +42,49 @@ export function randomPhotoId(length: number) {
   return Array.from(array)
     .map((n) => characters[n % characters.length])
     .join("");
+}
+
+export async function addPhoto(file: File): Promise<Photo> {
+  if (!file) {
+    throw new Error("No file selected");
+  }
+
+  const id = randomPhotoId(7);
+
+  for (const size of imageSizes) {
+    const maxDimension = getPhotoMaxSize(size);
+    const filePath = getPhotoFileName(id, size);
+    let compressedFile: File;
+
+    compressedFile = await imageCompression(file, {
+      maxWidthOrHeight: maxDimension,
+      maxSizeMB: 0.2,
+      initialQuality: 0.8,
+      useWebWorker: true,
+    });
+
+    const { error: uploadError } = await supabase.storage
+      .from("photos")
+      .upload(filePath, compressedFile, {
+        cacheControl: "3600",
+        upsert: false,
+      });
+
+    if (uploadError) {
+      throw new Error(`Error uploading file ${filePath}`);
+    }
+  }
+
+  const { data: dbData, error: dbError } = await supabase
+    .from("photos")
+    .insert([{ id }])
+    .select();
+
+  if (dbError) {
+    throw new Error(`Failed to add photo ${id} to DB`);
+  }
+
+  return dbData?.[0];
 }
 
 export async function deletePhoto(id: string): Promise<void> {
