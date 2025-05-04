@@ -66,7 +66,12 @@ export function SignInDialog({ onClose }: Readonly<SignInDialogProps>) {
   }
 
   return (
-    <dialog ref={ref} className="alert-dialog sign-in-dialog">
+    <dialog
+      ref={ref}
+      className="alert-dialog sign-in-dialog"
+      aria-labelledby="dialog-title"
+      aria-modal="true"
+    >
       <button
         className="dialog-close-button"
         onClick={() => ref.current?.close()}
@@ -79,7 +84,9 @@ export function SignInDialog({ onClose }: Readonly<SignInDialogProps>) {
             className={`login-icon ${success ? "login-unlocked" : "login-locked"}`}
             aria-hidden="true"
           />
-          <h1 className="sr-only">Admin Login</h1>
+          <h1 id="dialog-title" className="sr-only">
+            Admin Login
+          </h1>
         </div>
         <input
           className={`email-input ${shake ? "shake" : ""}`}
