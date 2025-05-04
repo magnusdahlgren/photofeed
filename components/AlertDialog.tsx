@@ -39,11 +39,23 @@ export function AlertDialog({
       <div className="dialog-buttons">
         {onConfirm ? (
           <>
-            <button onClick={() => ref.current?.close()}>Cancel</button>
-            <button onClick={handleOK}>OK</button>
+            <button
+              className="primary-button"
+              onClick={() => ref.current?.close()}
+            >
+              Cancel
+            </button>
+            <button className="primary-button" onClick={handleOK}>
+              OK
+            </button>
           </>
         ) : (
-          <button onClick={() => ref.current?.close()}>OK</button>
+          <button
+            className="primary-button"
+            onClick={() => ref.current?.close()}
+          >
+            OK
+          </button>
         )}
       </div>
     </dialog>

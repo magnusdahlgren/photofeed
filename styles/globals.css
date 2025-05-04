@@ -144,11 +144,10 @@ dialog::backdrop {
 }
 
 .primary-button,
-.alert-dialog button {
+.alert-dialog button.primary {
   display: block;
   width: fit-content;
   padding: 0.75rem 1.7rem;
-  margin: 3rem auto;
   background: black;
   color: white;
   font-size: 1.2rem;
@@ -161,12 +160,12 @@ dialog::backdrop {
 }
 
 .primary-button:hover,
-.alert-dialog button:hover {
+.alert-dialog button.primary:hover {
   background: #333;
 }
 
 .primary-button:disabled,
-.alert-dialog button:disabled,
+.alert-dialog button.primary:disabled,
 .primary-button.disabled {
   background-color: #555;
   cursor: not-allowed;
@@ -270,6 +269,52 @@ dialog::backdrop {
 }
 
 /* ==================== */
+/* Alerts               */
+/* ==================== */
+
+.alert-dialog {
+  background-color: #fff;
+  border: none;
+  border-radius: 1rem;
+  padding: 2rem;
+  max-width: 400px;
+  min-width: 300px;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.alert-dialog .dialog-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.alert-dialog button.primary {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background: black;
+  color: white;
+  transition: background 0.2s ease;
+  min-width: 100px;
+  margin: 0;
+}
+
+.alert-dialog button.primary:hover {
+  background: #222;
+}
+
+.alert-dialog button:focus {
+  outline: 2px solid #888;
+  outline-offset: 2px;
+}
+
+/* ==================== */
 /* 3. Login form        */
 /* ==================== */
 
@@ -320,50 +365,27 @@ dialog::backdrop {
   background-image: url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjU2IDI1NiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCBmaWxsPSJub25lIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIvPjxyZWN0IHg9IjQwIiB5PSI4OCIgd2lkdGg9IjE3NiIgaGVpZ2h0PSIxMjgiIHJ4PSI4IiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMTYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik05Miw4OFY1MmEzNiwzNiwwLDAsMSw3MiwwIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMTYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg==");
   background-color: #315a39;
 }
-/* ==================== */
-/* Alerts               */
-/* ==================== */
 
-.alert-dialog {
-  background-color: #fff;
+.alert-dialog .dialog-close-button {
+  display: block;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 2rem;
+  height: 2rem;
+  padding: none;
+  background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pjxzdmcgdmlld0JveD0iMCAwIDI1NiAyNTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3QgZmlsbD0ibm9uZSIgaGVpZ2h0PSIyNTYiIHdpZHRoPSIyNTYiLz48bGluZSBzdHJva2U9IiMwMDAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxNiIgeDE9IjIwMCIgeDI9IjU2IiB5MT0iNTYiIHkyPSIyMDAiLz48bGluZSBzdHJva2U9IiMwMDAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxNiIgeDE9IjIwMCIgeDI9IjU2IiB5MT0iMjAwIiB5Mj0iNTYiLz48L3N2Zz4=");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-color: transparent;
   border: none;
-  border-radius: 1rem;
-  padding: 2rem;
-  max-width: 400px;
-  min-width: 300px;
-  text-align: center;
-  font-size: 1.4rem;
-  font-weight: 500;
-}
-
-.alert-dialog .dialog-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 2rem;
-}
-
-.alert-dialog button {
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  font-weight: bold;
-  border: none;
-  border-radius: 6px;
   cursor: pointer;
-  background: black;
-  color: white;
-  transition: background 0.2s ease;
-  min-width: 100px;
-  margin: 0;
+  min-width: none;
 }
 
-.alert-dialog button:hover {
-  background: #222;
-}
-
-.alert-dialog button:focus {
-  outline: 2px solid #888;
-  outline-offset: 2px;
+.alert-dialog .dialog-close-button:hover {
+  opacity: 1;
 }
 
 /* ==================== */

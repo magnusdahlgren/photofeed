@@ -67,6 +67,12 @@ export function SignInDialog({ onClose }: Readonly<SignInDialogProps>) {
 
   return (
     <dialog ref={ref} className="alert-dialog sign-in-dialog">
+      <button
+        className="dialog-close-button"
+        onClick={() => ref.current?.close()}
+        aria-label="Close"
+      />
+
       <form className="login-form" onSubmit={handleMagicLink}>
         <div className="login-heading">
           <div

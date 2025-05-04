@@ -19,9 +19,11 @@ export function UserMenu({ onRequestSignIn }: Readonly<UserMenuProps>) {
     async function checkUser() {
       try {
         const {
-          data: { user },
+          data: { session },
           error,
-        } = await supabase.auth.getUser();
+        } = await supabase.auth.getSession();
+
+        const user = session?.user;
 
         if (error) {
           console.error("Error fetching user:", error);

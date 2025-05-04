@@ -1,17 +1,11 @@
 /* ==================== */
-/* 4. Admin Navigation  */
-/* ==================== */
-
-nav {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  z-index: 10;
-}
-
-/* ==================== */
 /* 5. Admin Feed        */
 /* ==================== */
+
+.add-photo-button {
+  display: block;
+  margin: 3rem auto !important;
+}
 
 .photo-list {
   max-width: 600px;
