@@ -22,8 +22,7 @@
 - [x] Remove page reload after deleting a photo
 - [x] Spinner when uploading photos
 - [x] Polish login form design
-- [ ] Add smooth transitions for adding/removing photos (e.g. with framer-motion)
-- [ ] User menu for login/logout
+- [x] User menu for login/logout
   - [x] Add avatar
   - [x] Add menu with login/logout
   - [x] Icons for login/logout in menu
@@ -32,10 +31,11 @@
   - [x] Set user avatar letter based on user name
   - [x] Tidy up other icons
   - [x] Logout should take user back to feed, not sign in form
-  - [ ] Move sign in form to modal
-  - [ ] Take user to /, not to sign in form if going to /admin when not signed in
+  - [x] Take user to /, not to sign in form if going to /admin when not signed in
+- [ ] Move sign in form to modal
 - [ ] Add buttons '<' and '>' to step between photos in photo details page
 - [ ] Add click outside menu to close menu
+- [ ] Add smooth transitions for adding/removing photos (e.g. with framer-motion)
 - [ ] Menu keyboard accessibility
 
 ## 🐛 Bugs
