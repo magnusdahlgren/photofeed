@@ -8,7 +8,7 @@ import { AddPhotoButton } from './AddPhotoButton';
 import { DeletePhotoButton } from './DeletePhotoButton';
 import { PhotoModal } from './PhotoModal';
 import { AlertDialog } from '@/components/AlertDialog';
-import { UserMenu } from '@/components/UserMenu';
+import { UserMenuWithSignIn } from '@/components/UserMenuWithSignIn';
 
 interface Photo {
   id: string;
@@ -107,7 +107,7 @@ export default function AdminPage() {
 
   return (
     <main>
-      <UserMenu />
+      <UserMenuWithSignIn />
       <AddPhotoButton setPhotos={setPhotos} setAlertMessage={setAlertMessage} />
       {content}
       {previewPhotoId && <PhotoModal id={previewPhotoId} onClose={() => setPreviewPhotoId(null)} />}

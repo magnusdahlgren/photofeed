@@ -1,11 +1,16 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { SignOutButton } from "@/app/admin/SignOutButton";
+import { SignOutButton } from "@/components/SignOutButton";
 import { supabase } from "@/lib/supabase";
 import Link from "next/link";
+import { SignInButton } from "./SignInButton";
 
-export function UserMenu() {
+interface UserMenuProps {
+  onRequestSignIn: () => void;
+}
+
+export function UserMenu({ onRequestSignIn }: Readonly<UserMenuProps>) {
   const [isOpen, setIsOpen] = useState(false);
   const [isSignedIn, setIsSignedIn] = useState(false);
   const [userName, setUserName] = useState("");
@@ -75,9 +80,7 @@ export function UserMenu() {
             </>
           ) : (
             <li>
-              <Link href="/admin/login/" className="sign-in-button">
-                Login
-              </Link>
+              <SignInButton onClick={onRequestSignIn} />
             </li>
           )}
         </ul>
