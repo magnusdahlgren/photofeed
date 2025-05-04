@@ -30,9 +30,10 @@
   - [x] Link to Admin when signed in
   - [x] Update avatar based on signed in user
   - [x] Set user avatar letter based on user name
-  - [ ] Tidy up other icons
-  - [ ] Logout should take user back to feed, not sign in form
+  - [x] Tidy up other icons
+  - [x] Logout should take user back to feed, not sign in form
   - [ ] Move sign in form to modal
+  - [ ] Take user to /, not to sign in form if going to /admin when not signed in
 - [ ] Add buttons '<' and '>' to step between photos in photo details page
 - [ ] Add click outside menu to close menu
 - [ ] Menu keyboard accessibility
