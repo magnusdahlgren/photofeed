@@ -161,9 +161,11 @@ dialog::backdrop {
 }
 
 .primary-button:disabled,
-.alert-dialog button:disabled {
-  background-color: #666;
+.alert-dialog button:disabled,
+.primary-button.disabled {
+  background-color: #555;
   cursor: not-allowed;
+  pointer-events: none;
 }
 
 /* ==================== */
@@ -239,4 +241,15 @@ dialog::backdrop {
 
 .shake {
   animation: shake 0.4s ease;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+  margin-right: 0.5rem; /* optional */
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
