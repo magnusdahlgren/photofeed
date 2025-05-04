@@ -23,12 +23,12 @@ export function UserMenu() {
   return (
     <div className="user-menu-container">
       <button
-        className="avatar"
+        className={`avatar ${isSignedIn ? "signed-in" : "signed-out"}`}
         aria-haspopup="true"
         aria-expanded={isOpen}
         onClick={() => setIsOpen(!isOpen)}
       >
-        M
+        {isSignedIn && <span>M</span>}
       </button>
       {isOpen && (
         <ul className="user-menu">

@@ -184,17 +184,37 @@ dialog::backdrop {
 }
 
 .user-menu-container .avatar {
-  width: 4rem;
-  height: 4rem;
-  background-color: #bbb;
+  width: 3rem;
+  height: 3rem;
   border-radius: 100%;
   font-size: 1.5rem;
+  color: #fff;
   cursor: pointer;
+}
+
+.user-menu-container .avatar.signed-in {
+  background-color: #4a5568;
+}
+
+.user-menu-container .avatar.signed-in:hover {
+  background-color: #2d3748;
+}
+
+.user-menu-container .avatar.signed-out {
+  background-color: #a0aec0;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjU2IDI1NiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCBmaWxsPSJub25lIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIvPjxjaXJjbGUgY3g9IjEyOCIgY3k9Ijk2IiByPSI2NCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBzdHJva2Utd2lkdGg9IjE2Ii8+PHBhdGggZD0iTTMxLDIxNmExMTIsMTEyLDAsMCwxLDE5NCwwIiBmaWxsPSJub25lIiBzdHJva2U9IndoaXRlIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMTYiLz48L3N2Zz4=");
+  background-size: 2rem;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.user-menu-container .avatar.signed-out:hover {
+  background-color: #718096;
 }
 
 .user-menu {
   position: absolute;
-  top: 5rem;
+  top: 4rem;
   right: 0;
   background: white;
   border-radius: 10px;
