@@ -1,69 +1,11 @@
 /* ==================== */
-/* 3. Login form        */
-/* ==================== */
-
-.login-main {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-}
-
-.login-form {
-  width: 400px;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  background-color: #fff;
-  padding: 2rem;
-}
-
-.email-input {
-  width: 90%;
-  padding: 0.75rem;
-  font-family: monospace;
-  font-size: 1rem;
-  border: 2px solid #333;
-  border-radius: 6px;
-}
-
-.login-icon {
-  width: 10rem;
-  height: 10rem;
-  margin: 0 auto 3rem auto;
-  border-radius: 100%;
-  background-color: #333;
-  background-size: 6rem;
-  background-repeat: no-repeat;
-  background-position: center;
-  transition:
-    background-color 0.3s ease,
-    background-image 0.3s ease;
-}
-
-.login-locked {
-  background-image: url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjU2IDI1NiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCBmaWxsPSJub25lIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIvPjxyZWN0IGZpbGw9Im5vbmUiIHg9IjQwIiB5PSI4OCIgd2lkdGg9IjE3NiIgaGVpZ2h0PSIxMjgiIHJ4PSI4IiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMTYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik05Miw4OFY1MmEzNiwzNiAwIDAsMTcyLDBWODgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIxNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PC9zdmc+");
-}
-
-.login-unlocked {
-  background-image: url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjU2IDI1NiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCBmaWxsPSJub25lIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIvPjxyZWN0IHg9IjQwIiB5PSI4OCIgd2lkdGg9IjE3NiIgaGVpZ2h0PSIxMjgiIHJ4PSI4IiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMTYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik05Miw4OFY1MmEzNiwzNiwwLDAsMSw3MiwwIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMTYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg==");
-  background-color: #315a39;
-}
-
-/* ==================== */
-/* 4. Admin Navigation  */
-/* ==================== */
-
-nav {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  z-index: 10;
-}
-
-/* ==================== */
 /* 5. Admin Feed        */
 /* ==================== */
+
+.add-photo-button {
+  display: block;
+  margin: 3rem auto !important;
+}
 
 .photo-list {
   max-width: 600px;
