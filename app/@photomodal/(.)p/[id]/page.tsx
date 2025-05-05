@@ -10,7 +10,7 @@ interface Params {
 
 export default function PhotoModalPage({ params }: Params) {
   const router = useRouter();
-  const { id } = use(params); // ⬅️ unwrap the promise
+  const { id } = use(params);
 
   return (
     <div className="photo-modal">

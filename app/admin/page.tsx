@@ -9,7 +9,6 @@ import { DeletePhotoButton } from './DeletePhotoButton';
 import { AlertDialog } from '@/components/AlertDialog';
 import { UserMenuWithSignIn } from '@/components/UserMenuWithSignIn';
 import { HomeButton } from './HomeButton';
-import PhotoModal from './PhotoModal';
 
 interface Photo {
   id: string;
@@ -17,7 +16,6 @@ interface Photo {
 }
 
 export default function AdminPage() {
-  const [previewPhotoId, setPreviewPhotoId] = useState<string | null>(null);
   const [photos, setPhotos] = useState<Photo[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -112,7 +110,6 @@ export default function AdminPage() {
       <HomeButton />
       <AddPhotoButton setPhotos={setPhotos} setAlertMessage={setAlertMessage} />
       {content}
-      {previewPhotoId && <PhotoModal id={previewPhotoId} />}
       {alertMessage && <AlertDialog message={alertMessage} onClose={() => setAlertMessage(null)} />}
       {photoToDelete && (
         <AlertDialog
