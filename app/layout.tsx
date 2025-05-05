@@ -6,8 +6,10 @@ export const metadata = {
 };
 
 export default function PhotofeedLayout({
+  photomodal,
   children,
 }: Readonly<{
+  photomodal: React.ReactNode;
   children: React.ReactNode;
 }>) {
   return (
@@ -24,7 +26,10 @@ export default function PhotofeedLayout({
           rel="stylesheet"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        {photomodal}
+      </body>
     </html>
   );
 }

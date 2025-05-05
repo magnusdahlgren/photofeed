@@ -7,9 +7,9 @@ interface Params {
 
 export default function PhotoPage({ params }: Params) {
   return (
-    <main>
-      <Link href="/" className="back-button" aria-label="Go back"></Link>
+    <div className="photo-modal">
+      <Link href="/" className="close-button" aria-label="Go back" />
       <PhotoDetail id={params.id} />
-    </main>
+    </div>
   );
 }

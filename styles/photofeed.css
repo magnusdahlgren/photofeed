@@ -85,22 +85,3 @@ ul.photo-feed {
     opacity: 1;
   }
 }
-
-.back-button {
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  width: 4rem;
-  height: 4rem;
-  background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pjxzdmcgdmlld0JveD0iMCAwIDI1NiAyNTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3QgZmlsbD0ibm9uZSIgaGVpZ2h0PSIyNTYiIHdpZHRoPSIyNTYiLz48bGluZSBzdHJva2U9IiMwMDAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxNiIgeDE9IjIwMCIgeDI9IjU2IiB5MT0iNTYiIHkyPSIyMDAiLz48bGluZSBzdHJva2U9IiMwMDAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxNiIgeDE9IjIwMCIgeDI9IjU2IiB5MT0iMjAwIiB5Mj0iNTYiLz48L3N2Zz4=");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  opacity: 0.7;
-  transition: opacity 0.2s ease;
-  z-index: 1;
-}
-
-.back-button:hover {
-  opacity: 1;
-}
