@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { getPhotoUrl } from "@/lib/photos";
 
 interface PhotoDetailProps {
@@ -7,10 +6,8 @@ interface PhotoDetailProps {
 
 export default function PhotoDetail({ id }: Readonly<PhotoDetailProps>) {
   return (
-    <>
-      <div className="photo-wrapper">
-        <img src={getPhotoUrl(id, "large")} alt="" className="fadeIn" />
-      </div>
-    </>
+    <div className="photo-wrapper">
+      <img src={getPhotoUrl(id, "large")} alt="" className="fadeIn" />
+    </div>
   );
 }

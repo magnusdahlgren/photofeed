@@ -1,15 +1,25 @@
+"use client";
+
+import { use } from "react";
 import PhotoDetail from "@/components/PhotoDetail";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 interface Params {
-  readonly params: { readonly id: string };
+  params: Promise<{ id: string }>;
 }
 
-export default function PhotoPage({ params }: Params) {
+export default function PhotoModalPage({ params }: Params) {
+  const router = useRouter();
+  const { id } = use(params); // ⬅️ unwrap the promise
+
   return (
     <div className="photo-modal">
-      <Link href="/" className="close-button" aria-label="Go back" />
-      <PhotoDetail id={params.id} />
+      <button
+        onClick={() => router.back()}
+        className="close-button"
+        aria-label="Close modal"
+      />
+      <PhotoDetail id={id} />
     </div>
   );
 }
