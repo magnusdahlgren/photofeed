@@ -16,6 +16,7 @@ export function SignInDialog({ onClose }: Readonly<SignInDialogProps>) {
   const [shake, setShake] = useState(false);
 
   const ref = useRef<HTMLDialogElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     const dialog = ref.current;
@@ -23,6 +24,7 @@ export function SignInDialog({ onClose }: Readonly<SignInDialogProps>) {
 
     if (!dialog.open) {
       dialog.showModal();
+      inputRef.current?.focus();
     }
 
     const handleClose = () => onClose();
@@ -89,10 +91,12 @@ export function SignInDialog({ onClose }: Readonly<SignInDialogProps>) {
           </h1>
         </div>
         <input
+          ref={inputRef}
           className={`email-input ${shake ? "shake" : ""}`}
           type="email"
           placeholder="Email"
           value={email}
+          autoFocus
           onChange={(e) => {
             setEmail(e.target.value);
             setSuccess(false);
