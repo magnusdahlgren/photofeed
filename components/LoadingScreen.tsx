@@ -1,4 +1,4 @@
-import { SpinnerIcon } from "./SpinnerIcon";
+import { SpinnerIcon } from "@/components/SpinnerIcon";
 
 export function LoadingScreen() {
   return (
