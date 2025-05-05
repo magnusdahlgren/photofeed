@@ -96,7 +96,6 @@ export function SignInDialog({ onClose }: Readonly<SignInDialogProps>) {
           type="email"
           placeholder="Email"
           value={email}
-          autoFocus
           onChange={(e) => {
             setEmail(e.target.value);
             setSuccess(false);
