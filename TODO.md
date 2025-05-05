@@ -31,6 +31,7 @@
 - [ ] Nicer masthead for photo feed
 - [ ] Mobile-friendly layout
 - [ ] Style feed error
+- [ ] Masonry - build my own
 
 ## 🐛 Bugs
 

@@ -4,6 +4,10 @@
 
 header {
   padding: 6rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
   text-align: center;
 }
 
@@ -13,6 +17,10 @@ header h1 {
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: #333;
+}
+
+img.logo {
+  height: 8rem;
 }
 
 /* ==================== */
