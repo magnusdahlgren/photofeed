@@ -6,7 +6,6 @@
 - [x] Add auto-resize of photos when uploading
 - [x] Add photo preview modal to Admin page
 - [x] Better error messages when adding new photo
-- [ ] Add keyboard nav for alert (ESC / return)
 - [x] Better progress indication
 
 ## ⏩ Performance
@@ -32,12 +31,15 @@
   - [x] Tidy up other icons
   - [x] Logout should take user back to feed, not sign in form
   - [x] Take user to /, not to sign in form if going to /admin when not signed in
-- [ ] Move sign in form to modal
+- [x] Move sign in form to modal
 - [ ] Add buttons '<' and '>' to step between photos in photo details page
 - [ ] Add click outside menu to close menu
 - [ ] Add link from Admin to Photo Feed
 - [ ] Add smooth transitions for adding/removing photos (e.g. with framer-motion)
-- [ ] Menu keyboard accessibility
+- [ ] Better loading state for Admin page
+- [ ] Nicer masthead for photo feed
+- [ ] Mobile-friendly layout
+- [ ] Closing photo detail page should take you back to where you were in the feed
 
 ## 🐛 Bugs
 
@@ -54,6 +56,8 @@
 - [x] Delete image files from the bucket when deleting a photo from the db
 - [ ] Give a 404 when /p/[id] doesn't exist in db
 - [ ] Custom 404 page
+- [ ] Menu keyboard accessibility
+- [ ] Add keyboard nav for alert (ESC / return)
 
 ## 🧹 Maintenance
 
