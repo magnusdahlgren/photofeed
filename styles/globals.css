@@ -441,6 +441,32 @@ dialog::backdrop {
 }
 
 /* ==================== */
+/* Loading Screen       */
+/* ==================== */
+
+.loading-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* full screen */
+  background: #f9f9f9;
+}
+
+.loading-content {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.2rem;
+  color: #444;
+  font-weight: 500;
+}
+
+.loading-screen .spinner {
+  width: 2rem;
+  height: 2rem;
+}
+
+/* ==================== */
 /* Visual Effects       */
 /* ==================== */
 

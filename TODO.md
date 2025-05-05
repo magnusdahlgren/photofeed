@@ -22,27 +22,19 @@
 - [x] Spinner when uploading photos
 - [x] Polish login form design
 - [x] User menu for login/logout
-  - [x] Add avatar
-  - [x] Add menu with login/logout
-  - [x] Icons for login/logout in menu
-  - [x] Link to Admin when signed in
-  - [x] Update avatar based on signed-in user
-  - [x] Set user avatar letter based on username
-  - [x] Tidy up other icons
-  - [x] Logout should take user back to feed, not sign in form
-  - [x] Take user to /, not to sign in form if going to /admin when not signed in
 - [x] Move sign in form to modal
 - [x] Add link from Admin to Photo Feed
 - [x] Add click outside menu to close menu
 - [x] Add shared full-page photo modal for photo feed and admin
-- [ ] Add buttons '<' and '>' to step between photos in photo details page
+- [x] Better loading state for Admin page
+- [ ] Add buttons '<' and '>' to step between photos in photo details page (TBC)
 - [ ] Add smooth transitions for adding/removing photos (e.g. with framer-motion)
-- [ ] Better loading state for Admin page
 - [ ] Nicer masthead for photo feed
 - [ ] Mobile-friendly layout
-- [ ] Closing photo detail page should take you back to where you were in the feed
 
 ## 🐛 Bugs
+
+- [x] Closing photo detail page should take you back to where you were in the feed
 
 ## 🛠 Refactoring
 
@@ -67,3 +59,4 @@
 - [x] SonarQube code reviews
 - [x] CodeRabbit PR summaries
 - [ ] Add automated tests + re-enable SonarQube code coverage check
+- [ ] Deploy to prod (Vercel?)
