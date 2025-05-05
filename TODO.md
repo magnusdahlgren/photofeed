@@ -38,7 +38,8 @@
 - [ ] Add smooth transitions for adding/removing photos (e.g. with framer-motion)
 - [ ] Better loading state for Admin page
 - [ ] Nicer masthead for photo feed
-- [ ] Mobile friendly layout
+- [ ] Mobile-friendly layout
+- [ ] Closing photo detail page should take you back to where you were in the feed
 
 ## 🐛 Bugs
 
