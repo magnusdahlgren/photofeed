@@ -9,6 +9,7 @@ import { DeletePhotoButton } from './DeletePhotoButton';
 import { AlertDialog } from '@/components/AlertDialog';
 import { UserMenuWithSignIn } from '@/components/UserMenuWithSignIn';
 import { HomeButton } from './HomeButton';
+import { LoadingScreen } from '@/components/LoadingScreen';
 
 interface Photo {
   id: string;
@@ -56,11 +57,7 @@ export default function AdminPage() {
     fetchPhotos();
   }, []);
   if (loading) {
-    return (
-      <main>
-        <p>Loading...</p>
-      </main>
-    );
+    return <LoadingScreen />;
   }
 
   let content;
