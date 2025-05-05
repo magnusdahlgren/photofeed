@@ -21,10 +21,10 @@ header h1 {
 
 ul.photo-feed {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
   gap: 2rem;
   list-style: none;
-  max-width: 1000px;
+  max-width: 60rem;
   margin: 0 auto;
   padding: 0 2rem 5rem 2rem;
 }
@@ -40,7 +40,7 @@ ul.photo-feed {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 6px;
+  border-radius: 0.25rem;
   transform: translateY(1rem);
   animation: moveIn 0.6s ease forwards;
 }

@@ -27,10 +27,10 @@
 - [x] Add click outside menu to close menu
 - [x] Add shared full-page photo modal for photo feed and admin
 - [x] Better loading state for Admin page
-- [ ] Add buttons '<' and '>' to step between photos in photo details page (TBC)
 - [ ] Add smooth transitions for adding/removing photos (e.g. with framer-motion)
 - [ ] Nicer masthead for photo feed
 - [ ] Mobile-friendly layout
+- [ ] Style feed error
 
 ## 🐛 Bugs
 
@@ -39,10 +39,10 @@
 ## 🛠 Refactoring
 
 - [x] Remove inline styles in /login/page.tsx
+- [x] Consistent use of rem, avoiding mixing with px
 - [ ] Add a proper Photo type for consistency
 - [ ] Move bucket name ("photos") to environment variable
 - [ ] CSS variables for colours
-- [ ] Consistent use of rem, avoiding mixing with px
 
 ## 💡 Nice to have
 
