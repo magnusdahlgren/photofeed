@@ -27,8 +27,8 @@
 - [x] Add click outside menu to close menu
 - [x] Add shared full-page photo modal for photo feed and admin
 - [x] Better loading state for Admin page
+- [x] Nicer masthead for photo feed
 - [ ] Add smooth transitions for adding/removing photos (e.g. with framer-motion)
-- [ ] Nicer masthead for photo feed
 - [ ] Mobile-friendly layout
 - [ ] Style feed error
 - [ ] Masonry - build my own
