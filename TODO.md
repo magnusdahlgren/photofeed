@@ -34,6 +34,7 @@
 - [x] Move sign in form to modal
 - [x] Add link from Admin to Photo Feed
 - [x] Add click outside menu to close menu
+- [x] Add shared full-page photo modal for photo feed and admin
 - [ ] Add buttons '<' and '>' to step between photos in photo details page
 - [ ] Add smooth transitions for adding/removing photos (e.g. with framer-motion)
 - [ ] Better loading state for Admin page

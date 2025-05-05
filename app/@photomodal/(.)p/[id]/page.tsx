@@ -5,7 +5,7 @@ import PhotoDetail from "@/components/PhotoDetail";
 import { useRouter } from "next/navigation";
 
 interface Params {
-  params: Promise<{ id: string }>;
+  readonly params: Promise<{ id: string }>;
 }
 
 export default function PhotoModalPage({ params }: Params) {
