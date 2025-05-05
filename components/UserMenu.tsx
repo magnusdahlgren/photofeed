@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { SignOutButton } from "@/components/SignOutButton";
 import { supabase } from "@/lib/supabase";
 import Link from "next/link";
@@ -14,6 +14,18 @@ export function UserMenu({ onRequestSignIn }: Readonly<UserMenuProps>) {
   const [isOpen, setIsOpen] = useState(false);
   const [isSignedIn, setIsSignedIn] = useState(false);
   const [userName, setUserName] = useState("");
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    }
+
+    window.addEventListener("click", handleClickOutside);
+    return () => window.removeEventListener("click", handleClickOutside);
+  }, []);
 
   useEffect(() => {
     async function checkUser() {
@@ -54,7 +66,7 @@ export function UserMenu({ onRequestSignIn }: Readonly<UserMenuProps>) {
   }, []);
 
   return (
-    <div className="user-menu-container">
+    <div ref={menuRef} className="user-menu-container">
       <button
         className={`avatar ${isSignedIn ? "signed-in" : "signed-out"}`}
         aria-haspopup="true"

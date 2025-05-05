@@ -32,9 +32,9 @@
   - [x] Logout should take user back to feed, not sign in form
   - [x] Take user to /, not to sign in form if going to /admin when not signed in
 - [x] Move sign in form to modal
+- [x] Add link from Admin to Photo Feed
+- [x] Add click outside menu to close menu
 - [ ] Add buttons '<' and '>' to step between photos in photo details page
-- [ ] Add click outside menu to close menu
-- [ ] Add link from Admin to Photo Feed
 - [ ] Add smooth transitions for adding/removing photos (e.g. with framer-motion)
 - [ ] Better loading state for Admin page
 - [ ] Nicer masthead for photo feed
