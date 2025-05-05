@@ -6,10 +6,10 @@ import { supabase } from '@/lib/supabase';
 import { getPhotoUrl, formatDateUK, deletePhoto } from '@/lib/photos';
 import { AddPhotoButton } from './AddPhotoButton';
 import { DeletePhotoButton } from './DeletePhotoButton';
-import { PhotoModal } from './PhotoModal';
 import { AlertDialog } from '@/components/AlertDialog';
 import { UserMenuWithSignIn } from '@/components/UserMenuWithSignIn';
 import { HomeButton } from './HomeButton';
+import PhotoModal from './PhotoModal';
 
 interface Photo {
   id: string;
@@ -78,7 +78,7 @@ export default function AdminPage() {
           <div key={photo.id} className="photo-row">
             <button
               className="thumbnail-container"
-              onClick={() => setPreviewPhotoId(photo.id)}
+              onClick={() => router.push(`/p/${photo.id}?from=admin`)}
               aria-label="Preview photo"
             >
               <img src={getPhotoUrl(photo.id, 'small')} alt="" className="thumbnail" />
@@ -112,7 +112,7 @@ export default function AdminPage() {
       <HomeButton />
       <AddPhotoButton setPhotos={setPhotos} setAlertMessage={setAlertMessage} />
       {content}
-      {previewPhotoId && <PhotoModal id={previewPhotoId} onClose={() => setPreviewPhotoId(null)} />}
+      {previewPhotoId && <PhotoModal id={previewPhotoId} />}
       {alertMessage && <AlertDialog message={alertMessage} onClose={() => setAlertMessage(null)} />}
       {photoToDelete && (
         <AlertDialog
