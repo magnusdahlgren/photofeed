@@ -41,7 +41,7 @@
 
 - [x] Remove inline styles in /login/page.tsx
 - [x] Consistent use of rem, avoiding mixing with px
-- [ ] Add a proper Photo type for consistency
+- [x] Add a proper Photo type for consistency
 - [ ] Move bucket name ("photos") to environment variable
 - [ ] CSS variables for colours
 
