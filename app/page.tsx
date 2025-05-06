@@ -2,12 +2,15 @@ import Link from "next/link";
 import { supabase } from "@/lib/supabase";
 import { getPhotoUrl } from "@/lib/photos";
 import { UserMenuWithSignIn } from "@/components/UserMenuWithSignIn";
+import type { Photo } from "@/types/photo";
 
 export default async function Home() {
-  const { data: photos, error } = await supabase
+  const { data, error } = await supabase
     .from("photos")
     .select("*")
     .order("created_at", { ascending: false });
+
+  const photos = data as Photo[] | null;
 
   let content;
 
@@ -15,7 +18,7 @@ export default async function Home() {
     content = (
       <p className="error">Something went wrong loading the photo feed.</p>
     );
-  } else if (!photos || photos.length === 0) {
+  } else if (!photos?.length) {
     content = <p className="error">No photos available.</p>;
   } else {
     content = (

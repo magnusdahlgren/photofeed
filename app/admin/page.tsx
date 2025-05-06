@@ -10,11 +10,7 @@ import { AlertDialog } from '@/components/AlertDialog';
 import { UserMenuWithSignIn } from '@/components/UserMenuWithSignIn';
 import { HomeButton } from './HomeButton';
 import { LoadingScreen } from '@/components/LoadingScreen';
-
-interface Photo {
-  id: string;
-  created_at: string;
-}
+import type { Photo } from '@/types/photo';
 
 export default function AdminPage() {
   const [photos, setPhotos] = useState<Photo[]>([]);
