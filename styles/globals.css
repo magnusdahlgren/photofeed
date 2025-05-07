@@ -102,9 +102,9 @@ video {
 /* ==================== */
 
 body {
-  background: var(--color-bg-light);
+  background: var(--color-page-bg);
+  color: var(--color-page-text);
   font-family: var(--font-main);
-  color: var(--color-text-dark);
 }
 
 body:has(dialog[open]) {
