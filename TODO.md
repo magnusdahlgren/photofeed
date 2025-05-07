@@ -1,5 +1,38 @@
 # TODO
 
+## 👉🏻 Before launch
+
+- [ ] Return a 404 when /p/[id] doesn't exist in db
+- [x] CSS variables for colours
+- [x] CSS variables for border radii
+- [ ] Style the feed errors
+- [ ] Mobile-friendly layout
+- [ ] Move bucket name ("photos") to environment variable
+- [ ] Move DB name ("photos") to environment variable
+
+## 🚀 Launch
+
+- [ ] Set up separate DB for production
+- [ ] Set up separate bucket for production
+- [ ] Deploy to prod (Vercel?)
+
+## 🧹 After launch
+
+- [ ] Add automated tests + re-enable SonarQube code coverage check
+- [ ] Lazy loading the photo feed (once I have more than 30 photos)
+- [ ] Custom 404 page
+
+## 🔮 Possible future enhancements
+
+- [ ] Masonry - react-masonry-css
+- [ ] Menu keyboard accessibility
+- [ ] Add keyboard nav for alert (ESC / return)
+- [ ] Add smooth transitions for adding/removing photos (e.g. with framer-motion)
+
+---
+
+# DONE
+
 ## 📋 Admin Features
 
 - [x] Add image uploader to Admin page
@@ -11,7 +44,6 @@
 ## ⏩ Performance
 
 - [x] Add different photo sizes for feed (small) and detail page (large) to reduce bandwidth
-- [ ] Lazy loading the photo feed (once I have more than 30 photos)
 
 ## ✨ Visual Polish
 
@@ -28,10 +60,6 @@
 - [x] Add shared full-page photo modal for photo feed and admin
 - [x] Better loading state for Admin page
 - [x] Nicer masthead for photo feed
-- [ ] Add smooth transitions for adding/removing photos (e.g. with framer-motion)
-- [ ] Mobile-friendly layout
-- [ ] Style feed error
-- [ ] Masonry - build my own
 
 ## 🐛 Bugs
 
@@ -41,17 +69,11 @@
 
 - [x] Remove inline styles in /login/page.tsx
 - [x] Consistent use of rem, avoiding mixing with px
-- [ ] Add a proper Photo type for consistency
-- [ ] Move bucket name ("photos") to environment variable
-- [ ] CSS variables for colours
+- [x] Add a proper Photo type for consistency
 
 ## 💡 Nice to have
 
 - [x] Delete image files from the bucket when deleting a photo from the db
-- [ ] Give a 404 when /p/[id] doesn't exist in db
-- [ ] Custom 404 page
-- [ ] Menu keyboard accessibility
-- [ ] Add keyboard nav for alert (ESC / return)
 
 ## 🧹 Maintenance
 
@@ -59,5 +81,3 @@
 - [x] Create GitHub repo
 - [x] SonarQube code reviews
 - [x] CodeRabbit PR summaries
-- [ ] Add automated tests + re-enable SonarQube code coverage check
-- [ ] Deploy to prod (Vercel?)
