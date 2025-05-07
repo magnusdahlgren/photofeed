@@ -1,0 +1,32 @@
+:root {
+  /* primary colour palette */
+  --color-lightest: #fafafa;
+  --color-lighter: #f9f9f9;
+  --color-light: #d5d5d5;
+  --color-dark: #666666;
+  --color-darker: #333333;
+  --color-darkest: #111111;
+
+  /* element colours */
+  --color-page-bg: var(--color-lighter);
+  --color-page-text: var(--color-darker);
+
+  --color-button-bg: var(--color-darkest);
+  --color-button-bg-hover: var(--color-dark);
+  --color-button-bg-disabled: var(--color-dark);
+  --color-button-text: var(--color-lightest);
+
+  --color-dialog-bg: var(--color-lightest);
+
+  --color-error-bg: #fff9db;
+  --color-error-icon: #f1c40f;
+
+  /* radiuses */
+  --border-radius-s: 0.25rem;
+  --border-radius-m: 0.4rem;
+  --border-radius-l: 0.66rem;
+  --border-radius-xl: 1rem;
+
+  /* fonts */
+  --font-main: "Montserrat", sans-serif;
+}

@@ -102,8 +102,9 @@ video {
 /* ==================== */
 
 body {
-  background: #f9f9f9;
-  font-family: "Montserrat", sans-serif;
+  background: var(--color-bg-light);
+  font-family: var(--font-main);
+  color: var(--color-text-dark);
 }
 
 body:has(dialog[open]) {
@@ -127,7 +128,7 @@ dialog::backdrop {
 }
 
 .error {
-  background-color: #eee;
+  background-color: var(--color-error-bg);
 }
 
 .primary-button,
@@ -135,12 +136,12 @@ dialog::backdrop {
   display: block;
   width: fit-content;
   padding: 0.75rem 1.7rem;
-  background: black;
-  color: white;
+  background: var(--color-button-bg);
+  color: var(--color-button-text);
   font-size: 1.2rem;
   font-weight: 500;
   border: none;
-  border-radius: 0.4rem;
+  border-radius: var(--border-radius-m);
   cursor: pointer;
   transition: 0.2s ease;
   text-transform: uppercase;
@@ -148,13 +149,13 @@ dialog::backdrop {
 
 .primary-button:hover,
 .alert-dialog button.primary:hover {
-  background: #333;
+  background: var(--color-button-bg-hover);
 }
 
 .primary-button:disabled,
 .alert-dialog button.primary:disabled,
 .primary-button.disabled {
-  background-color: #555;
+  background-color: var(--color-button-bg-disabled);
   cursor: not-allowed;
   pointer-events: none;
 }
@@ -187,7 +188,7 @@ dialog::backdrop {
 }
 
 .user-menu-container .avatar.signed-out {
-  background-color: #a0aec0;
+  background-color: var(--color-light);
   background-image: url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjU2IDI1NiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCBmaWxsPSJub25lIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIvPjxjaXJjbGUgY3g9IjEyOCIgY3k9Ijk2IiByPSI2NCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBzdHJva2Utd2lkdGg9IjE2Ii8+PHBhdGggZD0iTTMxLDIxNmExMTIsMTEyLDAsMCwxLDE5NCwwIiBmaWxsPSJub25lIiBzdHJva2U9IndoaXRlIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMTYiLz48L3N2Zz4=");
   background-size: 2rem;
   background-repeat: no-repeat;
@@ -195,7 +196,7 @@ dialog::backdrop {
 }
 
 .user-menu-container .avatar.signed-out:hover {
-  background-color: #718096;
+  background-color: var(--color-dark);
 }
 
 .user-menu {
@@ -203,7 +204,7 @@ dialog::backdrop {
   top: 4rem;
   right: 0;
   background: white;
-  border-radius: 0.5rem;
+  border-radius: var(--border-radius-l);
   padding: 0.5rem 0;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   list-style: none;
@@ -231,7 +232,7 @@ dialog::backdrop {
 
 .user-menu button:hover,
 .user-menu a:hover {
-  background-color: #f0f0f0;
+  background-color: var(--color-lightest);
 }
 
 .sign-in-button {
@@ -260,9 +261,9 @@ dialog::backdrop {
 /* ==================== */
 
 .alert-dialog {
-  background-color: #fff;
+  background-color: var(--color-dialog-bg);
   border: none;
-  border-radius: 1rem;
+  border-radius: var(--border-radius-xl);
   padding: 2rem;
   max-width: 40rem;
   min-width: 30rem;
@@ -283,20 +284,20 @@ dialog::backdrop {
   font-size: 1rem;
   font-weight: bold;
   border: none;
-  border-radius: 0.25rem;
+  border-radius: var(--border-radius-s);
   cursor: pointer;
-  background: black;
-  color: white;
+  background: var(--color-button-bg);
+  color: var(--color-button-text);
   transition: background 0.2s ease;
   margin: 0;
 }
 
 .alert-dialog button.primary:hover {
-  background: #222;
+  background: var(--color-button-bg-hover);
 }
 
 .alert-dialog button:focus {
-  outline: 2px solid #888;
+  outline: 2px solid var(--color-dark);
   outline-offset: 2px;
 }
 
@@ -345,7 +346,7 @@ dialog::backdrop {
   width: 100vw;
   height: 100vh;
   z-index: 1000; /* higher than your menu, etc. */
-  background-color: #f9f9f9;
+  background-color: var(--color-page-bg);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -370,7 +371,7 @@ dialog::backdrop {
   max-width: 25rem;
   width: 90%;
   gap: 3rem;
-  background-color: #fff;
+  background-color: var(--color-dialog-bg);
   padding: 1rem;
 }
 
@@ -380,14 +381,14 @@ dialog::backdrop {
   font-family: monospace;
   font-size: 1rem;
   border: 2px solid #333;
-  border-radius: 0.25rem;
+  border-radius: var(--border-radius-s);
 }
 
 .login-icon {
   width: 10rem;
   height: 10rem;
   border-radius: 100%;
-  background-color: #333;
+  background-color: var(--color-darker);
   background-size: 6rem;
   background-repeat: no-repeat;
   background-position: center;
@@ -444,7 +445,7 @@ dialog::backdrop {
   align-items: center;
   gap: 0.5rem;
   font-size: 1.2rem;
-  color: #444;
+  color: var(--color-dark);
   font-weight: 500;
 }
 
