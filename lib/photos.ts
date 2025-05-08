@@ -4,9 +4,10 @@ import { Photo } from "@/types/photo";
 
 export const imageSizes = ["small", "large"] as const;
 export type ImageSize = (typeof imageSizes)[number];
+const bucket = process.env.NEXT_PUBLIC_SUPABASE_PHOTO_BUCKET!;
 
 export function getPhotoUrl(id: string, size: ImageSize = "large"): string {
-  return `${process.env.NEXT_PUBLIC_SUPABASE_STORAGE_URL}/${process.env.NEXT_PUBLIC_SUPABASE_BUCKET}/${getPhotoFileName(id, size)}`;
+  return `${process.env.NEXT_PUBLIC_SUPABASE_STORAGE_URL}/${bucket}/${getPhotoFileName(id, size)}`;
 }
 
 export function getPhotoFileName(
@@ -64,7 +65,7 @@ export async function addPhoto(file: File): Promise<Photo> {
     });
 
     const { error: uploadError } = await supabase.storage
-      .from("photos")
+      .from(bucket)
       .upload(filePath, compressedFile, {
         cacheControl: "3600",
         upsert: false,
@@ -96,7 +97,7 @@ export async function deletePhoto(id: string): Promise<void> {
 
   const filePaths = imageSizes.map((size) => getPhotoFileName(id, size));
   const { error: storageError } = await supabase.storage
-    .from("photos")
+    .from(bucket)
     .remove(filePaths);
   if (storageError) throw new Error(`Failed to delete photo files for ${id}`);
 }
