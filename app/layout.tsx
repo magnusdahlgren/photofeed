@@ -3,7 +3,7 @@ import "../styles/globals.css";
 import "../styles/photofeed.css";
 
 export const metadata = {
-  title: "Magnus D",
+  title: "Magnus×365",
 };
 
 export default function PhotofeedLayout({

@@ -48,7 +48,7 @@ export default async function Home() {
           className="logo"
           alt="AI line art drawing of Magnus"
         />
-        <h1>Magnus D</h1>
+        <h1>Magnus×365</h1>
         <UserMenuWithSignIn />
       </header>
       {content}
