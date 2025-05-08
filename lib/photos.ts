@@ -2,12 +2,20 @@ import imageCompression from "browser-image-compression";
 import { supabase } from "@/lib/supabase";
 import { Photo } from "@/types/photo";
 
+const bucket = process.env.NEXT_PUBLIC_SUPABASE_PHOTO_BUCKET!;
+const storageUrl = process.env.NEXT_PUBLIC_SUPABASE_STORAGE_URL;
+if (!bucket) {
+  throw new Error("Missing env var: NEXT_PUBLIC_SUPABASE_PHOTO_BUCKET");
+}
+if (!storageUrl) {
+  throw new Error("Missing env var: NEXT_PUBLIC_SUPABASE_STORAGE_URL");
+}
+
 export const imageSizes = ["small", "large"] as const;
 export type ImageSize = (typeof imageSizes)[number];
-const bucket = process.env.NEXT_PUBLIC_SUPABASE_PHOTO_BUCKET!;
 
 export function getPhotoUrl(id: string, size: ImageSize = "large"): string {
-  return `${process.env.NEXT_PUBLIC_SUPABASE_STORAGE_URL}/${bucket}/${getPhotoFileName(id, size)}`;
+  return `${storageUrl}/${bucket}/${getPhotoFileName(id, size)}`;
 }
 
 export function getPhotoFileName(
