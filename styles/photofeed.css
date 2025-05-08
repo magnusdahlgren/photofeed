@@ -47,7 +47,7 @@ ul.photo-feed {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 0.25rem;
+  border-radius: var(--border-radius-s);
   transform: translateY(1rem);
   animation: moveIn 0.6s ease forwards;
 }
@@ -82,7 +82,7 @@ ul.photo-feed {
   height: auto;
   width: auto;
   object-fit: contain;
-  border-radius: 0.5rem;
+  border-radius: var(--border-radius-l);
   opacity: 0;
   animation: fadeIn 0.6s ease forwards;
 }

@@ -2,13 +2,14 @@
 
 ## 👉🏻 Before launch
 
-- [ ] Return a 404 when /p/[id] doesn't exist in db
+- [x] Return a 404 when /p/[id] doesn't exist in db
 - [x] CSS variables for colours
 - [x] CSS variables for border radii
 - [ ] Style the feed errors
 - [ ] Mobile-friendly layout
 - [ ] Move bucket name ("photos") to environment variable
 - [ ] Move DB name ("photos") to environment variable
+- [ ] Update name to Magnus 365
 
 ## 🚀 Launch
 
@@ -28,6 +29,7 @@
 - [ ] Menu keyboard accessibility
 - [ ] Add keyboard nav for alert (ESC / return)
 - [ ] Add smooth transitions for adding/removing photos (e.g. with framer-motion)
+- [ ] Unique page titles
 
 ---
 
