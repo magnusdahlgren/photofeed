@@ -22,6 +22,18 @@ img.logo {
   height: 8rem;
 }
 
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+  }
+
+  header h1 {
+    font-size: 2.5rem;
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+}
+
 /* ==================== */
 /* 4. Photo Feed        */
 /* ==================== */
@@ -62,6 +74,14 @@ ul.photo-feed {
   }
 }
 
+@media (max-width: 600px) {
+  ul.photo-feed {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 0 1rem 5rem 1rem;
+  }
+}
+
 /* ==================== */
 /* 5. Photo Detail Page */
 /* ==================== */
@@ -90,5 +110,11 @@ ul.photo-feed {
 @keyframes fadeIn {
   to {
     opacity: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .photo-wrapper {
+    padding: 0.5rem;
   }
 }

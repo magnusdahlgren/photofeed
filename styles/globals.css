@@ -275,7 +275,6 @@ dialog::backdrop {
   border-radius: var(--border-radius-xl);
   padding: 2rem;
   max-width: 40rem;
-  min-width: 30rem;
   text-align: center;
   font-size: 1.4rem;
   font-weight: 500;

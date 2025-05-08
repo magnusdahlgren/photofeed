@@ -25,6 +25,12 @@
   margin: 3rem auto !important;
 }
 
+@media (max-width: 600px) {
+  .add-photo-button {
+    margin: 8rem auto 3rem auto !important;
+  }
+}
+
 .photo-list {
   max-width: 35rem;
   margin: 0 auto;
