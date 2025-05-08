@@ -7,9 +7,9 @@
 - [x] CSS variables for border radii
 - [x] Style the feed errors
 - [x] Mobile-friendly layout
+- [ ] Update name to Magnus 365
 - [ ] Move bucket name ("photos") to environment variable
 - [ ] Move DB name ("photos") to environment variable
-- [ ] Update name to Magnus 365
 
 ## 🚀 Launch
 
