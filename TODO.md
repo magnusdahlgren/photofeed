@@ -8,14 +8,17 @@
 - [x] Style the feed errors
 - [x] Mobile-friendly layout
 - [x] Update name to Magnus×365
-- [ ] Move bucket name ("photos") to environment variable
-- [ ] Move DB name ("photos") to environment variable
+- [x] Move bucket name ("photos") to environment variable
 
 ## 🚀 Launch
 
 - [ ] Set up separate DB for production
 - [ ] Set up separate bucket for production
+- [ ] Create prod env config
+- [ ] Create robots.txt to prevent indexing
 - [ ] Deploy to prod (Vercel?)
+- [ ] Register domain
+- [ ] Point domain to prod site
 
 ## 🧹 After launch
 
