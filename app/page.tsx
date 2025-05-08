@@ -3,6 +3,7 @@ import { supabase } from "@/lib/supabase";
 import { getPhotoUrl } from "@/lib/photos";
 import { UserMenuWithSignIn } from "@/components/UserMenuWithSignIn";
 import type { Photo } from "@/types/photo";
+import ErrorMessage from "@/components/ErrorMessage";
 
 export default async function Home() {
   const { data, error } = await supabase
@@ -16,10 +17,10 @@ export default async function Home() {
 
   if (error) {
     content = (
-      <p className="error">Something went wrong loading the photo feed.</p>
+      <ErrorMessage message="Something went wrong loading the photo feed." />
     );
   } else if (!photos?.length) {
-    content = <p className="error">No photos available.</p>;
+    content = <ErrorMessage message="No photos found." />;
   } else {
     content = (
       <ul className="photo-feed">

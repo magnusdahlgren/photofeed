@@ -11,6 +11,7 @@ import { UserMenuWithSignIn } from '@/components/UserMenuWithSignIn';
 import { HomeButton } from './HomeButton';
 import { LoadingScreen } from '@/components/LoadingScreen';
 import type { Photo } from '@/types/photo';
+import ErrorMessage from '@/components/ErrorMessage';
 
 export default function AdminPage() {
   const [photos, setPhotos] = useState<Photo[]>([]);
@@ -59,9 +60,9 @@ export default function AdminPage() {
   let content;
 
   if (error) {
-    content = <p className="error">Something went wrong loading the photo feed.</p>;
+    content = <ErrorMessage message="Something went wrong loading the photo feed." />;
   } else if (!photos || photos.length === 0) {
-    content = <p className="error">No photos available.</p>;
+    content = <ErrorMessage message="No photos found." />;
   } else {
     content = (
       <div className="photo-list">

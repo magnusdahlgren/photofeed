@@ -129,6 +129,15 @@ dialog::backdrop {
 
 .error {
   background-color: var(--color-error-bg);
+  padding: 1.5em 1.5em 1.5em 4em; /* more padding-left to make space for the icon */
+  font-weight: 500;
+  font-size: 1.2em;
+  background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pjxzdmcgdmlld0JveD0iMCAwIDI1NiAyNTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3QgZmlsbD0ibm9uZSIgaGVpZ2h0PSIyNTYiIHdpZHRoPSIyNTYiLz48bGluZSBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxNiIgeDE9IjEyOCIgeDI9IjEyOCIgeTE9IjEwNCIgeTI9IjE0NCIvPjxwYXRoIGQ9Ik0xMTQuMiw0MGwtODgsMTUyQTE2LDE2LDAsMCwwLDQwLDIxNkgyMTZhMTYsMTYsMCwwLDAsMTMuOC0yNGwtODgtMTUyQTE1LjksMTUuOSwwLDAsMCwxMTQuMiw0MFoiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjE2Ii8+PGNpcmNsZSBjeD0iMTI4IiBjeT0iMTgwIiByPSIxMiIvPjwvc3ZnPg==");
+  background-size: 2em;
+  background-repeat: no-repeat;
+  background-position: 1.5em center; /* aligns icon with top padding */
+  width: fit-content;
+  margin: 0 auto;
 }
 
 .primary-button,

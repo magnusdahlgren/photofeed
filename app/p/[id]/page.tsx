@@ -2,6 +2,7 @@ import Link from "next/link";
 import PhotoDetail from "@/components/PhotoDetail";
 import { supabase } from "@/lib/supabase";
 import { notFound } from "next/navigation";
+import ErrorMessage from "@/components/ErrorMessage";
 
 interface Params {
   params: {
@@ -21,7 +22,7 @@ export default async function PhotoPage({ params }: Readonly<Params>) {
   if (error && error.code === "PGRST116") {
     notFound();
   } else if (error) {
-    content = <p className="error">There was an error loading the photo.</p>;
+    content = <ErrorMessage message="There was an error loading the photo." />;
   } else {
     content = <PhotoDetail id={params.id} />;
   }
