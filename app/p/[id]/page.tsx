@@ -21,9 +21,7 @@ export default async function PhotoPage({ params }: Readonly<Params>) {
   if (error && error.code === "PGRST116") {
     notFound();
   } else if (error) {
-    content = (
-      <p className="error">Something went wrong loading the photo photo.</p>
-    );
+    content = <p className="error">There was an error loading the photo.</p>;
   } else {
     content = <PhotoDetail id={params.id} />;
   }

@@ -2,7 +2,7 @@
 
 ## 👉🏻 Before launch
 
-- [ ] Return a 404 when /p/[id] doesn't exist in db
+- [x] Return a 404 when /p/[id] doesn't exist in db
 - [x] CSS variables for colours
 - [x] CSS variables for border radii
 - [ ] Style the feed errors
