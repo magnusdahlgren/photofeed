@@ -3,5 +3,9 @@ interface ErrorMessageProps {
 }
 
 export default function ErrorMessage({ message }: Readonly<ErrorMessageProps>) {
-  return <div className="error">{message}</div>;
+  return (
+    <div className="error" role="alert" aria-live="assertive">
+      {message}
+    </div>
+  );
 }

@@ -61,7 +61,7 @@ export default function AdminPage() {
 
   if (error) {
     content = <ErrorMessage message="Something went wrong loading the photo feed." />;
-  } else if (!photos || photos.length === 0) {
+  } else if (photos.length === 0) {
     content = <ErrorMessage message="No photos found." />;
   } else {
     content = (
