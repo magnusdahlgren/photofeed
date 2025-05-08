@@ -18,8 +18,7 @@
 
   --color-dialog-bg: var(--color-lightest);
 
-  --color-error-bg: #fff9db;
-  --color-error-icon: #f1c40f;
+  --color-error-bg: #ffe135;
 
   /* radii */
   --border-radius-s: 0.25rem;
