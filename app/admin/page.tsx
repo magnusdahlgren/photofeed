@@ -76,9 +76,12 @@ export default function AdminPage() {
               <img src={getPhotoUrl(photo.id, 'small')} alt="" className="thumbnail" />
               <div className="thumbnail-overlay" />
             </button>
-
             <div className="photo-id">{photo.id}</div>
-            <div className="photo-date">{formatDateUK(photo.created_at)}</div>
+            {photo.taken_at ? (
+              <div className="photo-date-taken-at">{formatDateUK(photo.taken_at)}</div>
+            ) : (
+              <div className="photo-date-uploaded-on">{formatDateUK(photo.created_at)}</div>
+            )}
             <DeletePhotoButton id={photo.id} onRequestDelete={(id) => setPhotoToDelete(id)} />
           </div>
         ))}
