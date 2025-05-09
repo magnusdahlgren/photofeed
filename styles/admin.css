@@ -39,8 +39,9 @@
 .photo-row {
   display: flex;
   align-items: center;
-  padding: 1rem;
+  padding: 1rem 0 1rem 1rem;
   border-bottom: 1px solid #ddd;
+  font-size: 1rem;
 }
 
 .thumbnail-container {
@@ -94,27 +95,43 @@
   white-space: nowrap;
 }
 
-.photo-date {
+.photo-date-uploaded-on,
+.photo-date-taken-at {
   flex: 0 0 auto;
   margin-left: 1rem;
-  font-size: 0.9rem;
-  color: #666;
+  color: var(--color-dark);
+  background-size: 0.8rem;
+  background-repeat: no-repeat;
+  background-position: left;
+  padding-left: 1.3rem;
+}
+
+.photo-date-uploaded-on {
+  color: var(--color-neutral);
+}
+
+.photo-date-taken-at {
+  background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pjxzdmcgdmlld0JveD0iMCAwIDI1NiAyNTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3QgZmlsbD0ibm9uZSIgaGVpZ2h0PSIyNTYiIHdpZHRoPSIyNTYiLz48cGF0aCBkPSJNMjA4LDIwOEg0OGExNiwxNiwwLDAsMS0xNi0xNlY4MEExNiwxNiwwLDAsMSw0OCw2NEg4MEw5Niw0MGg2NGwxNiwyNGgzMmExNiwxNiwwLDAsMSwxNiwxNlYxOTJBMTYsMTYsMCwwLDEsMjA4LDIwOFoiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjE2Ii8+PGNpcmNsZSBjeD0iMTI4IiBjeT0iMTMyIiBmaWxsPSJub25lIiByPSIzNiIgc3Ryb2tlPSIjMDAwIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMTYiLz48L3N2Zz4=");
 }
 
 .delete-photo-button {
-  width: 3rem;
-  height: 3rem;
+  width: 2.5rem;
+  height: 2.5rem;
   background: transparent;
   border: none;
   background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pjxzdmcgdmlld0JveD0iMCAwIDI1NiAyNTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3QgZmlsbD0ibm9uZSIgaGVpZ2h0PSIyNTYiIHdpZHRoPSIyNTYiLz48bGluZSBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxNiIgeDE9IjIxNiIgeDI9IjQwIiB5MT0iNTYiIHkyPSI1NiIvPjxsaW5lIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjE2IiB4MT0iMTA0IiB4Mj0iMTA0IiB5MT0iMTA0IiB5Mj0iMTY4Ii8+PGxpbmUgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDAwIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMTYiIHgxPSIxNTIiIHgyPSIxNTIiIHkxPSIxMDQiIHkyPSIxNjgiLz48cGF0aCBkPSJNMjAwLDU2VjIwOGE4LDgsMCwwLDEtOCw4SDY0YTgsOCwwLDAsMS04LThWNTYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjE2Ii8+PHBhdGggZD0iTTE2OCw1NlY0MGExNiwxNiwwLDAsMC0xNi0xNkgxMDRBMTYsMTYsMCwwLDAsODgsNDBWNTYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjE2Ii8+PC9zdmc+");
-  background-size: 1.3rem;
+  background-size: 1.4rem;
   background-repeat: no-repeat;
   background-position: center;
   cursor: pointer;
-  opacity: 0.3;
+  opacity: 0;
   transition: opacity 0.2s ease;
 }
 
-.delete-photo-button:hover {
+.photo-row:hover .delete-photo-button {
+  opacity: 0.3;
+}
+
+.photo-row:hover .delete-photo-button:hover {
   opacity: 1;
 }

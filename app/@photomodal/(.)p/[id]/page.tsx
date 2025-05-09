@@ -3,13 +3,12 @@ import PhotoDetail from "@/components/PhotoDetail";
 import { getPhotoById } from "@/lib/photos";
 
 interface Params {
-  params: {
-    id: string;
-  };
+  readonly params: Promise<{ id: string }>;
 }
 
 export default async function PhotoModalPage({ params }: Params) {
-  const photo = await getPhotoById(params.id);
+  const { id } = await params;
+  const photo = await getPhotoById(id);
 
   return (
     <div className="photo-modal">
