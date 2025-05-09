@@ -85,15 +85,43 @@ img.logo {
   box-sizing: border-box;
 }
 
-.photo-wrapper img {
-  max-height: 95vh;
+.photo-container {
+  position: relative;
+  display: inline-block;
   max-width: 95%;
+}
+
+.photo-container img {
   height: auto;
   width: auto;
+  max-width: 100%;
+  max-height: 95vh;
   object-fit: contain;
   border-radius: var(--border-radius-l);
   opacity: 0;
   animation: fadeIn 0.6s ease forwards;
+}
+
+.photo-container .photo-date {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  padding: 0.3rem 0.9rem 0.3rem 2.9rem;
+  font-size: 1rem;
+  letter-spacing: 0.1rem;
+  color: var(--color-lightest);
+  background-color: rgba(0, 0, 0, 0.5);
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjU2IDI1NiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCBmaWxsPSJub25lIiBoZWlnaHQ9IjI1NiIgd2lkdGg9IjI1NiIvPjxwYXRoIGQ9Ik0yMDgsMjA4SDQ4YTE2LDE2LDAsMCwxLTE2LTE2VjgwQTE2LDE2LDAsMCwxLDQ4LDY0SDgwTDk2LDQwaDY0bDE2LDI0aDMyYTE2LDE2LDAsMCwxLDE2LDE2VjE5MkExNiwxNiwwLDAsMSwyMDgsMjA4WiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMTYiLz48Y2lyY2xlIGN4PSIxMjgiIGN5PSIxMzIiIGZpbGw9Im5vbmUiIHI9IjM2IiBzdHJva2U9IiNmZmYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxNiIvPjwvc3ZnPg==");
+  background-size: 1.5em;
+  background-repeat: no-repeat;
+  background-position: 0.9rem;
+  backdrop-filter: blur(3px);
+  border-radius: 999rem;
+  display: none;
+}
+
+.photo-container:hover .photo-date {
+  display: block;
 }
 
 @keyframes fadeIn {

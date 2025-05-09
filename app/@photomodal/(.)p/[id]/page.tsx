@@ -1,25 +1,20 @@
-"use client";
-
-import { use } from "react";
+import CloseButton from "@/components/CloseButton";
 import PhotoDetail from "@/components/PhotoDetail";
-import { useRouter } from "next/navigation";
+import { getPhotoById } from "@/lib/photos";
 
 interface Params {
-  readonly params: Promise<{ id: string }>;
+  params: {
+    id: string;
+  };
 }
 
-export default function PhotoModalPage({ params }: Params) {
-  const router = useRouter();
-  const { id } = use(params);
+export default async function PhotoModalPage({ params }: Params) {
+  const photo = await getPhotoById(params.id);
 
   return (
     <div className="photo-modal">
-      <button
-        onClick={() => router.back()}
-        className="close-button"
-        aria-label="Close modal"
-      />
-      <PhotoDetail id={id} />
+      <CloseButton />
+      <PhotoDetail photo={photo} />
     </div>
   );
 }
