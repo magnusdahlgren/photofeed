@@ -13,7 +13,9 @@
 - [x] Add db column taken_at to store EXIF DateTimeOriginal when available
 - [x] Use taken_at for photo detail page title
 - [x] Show taken_at on photo detail page
+- [ ] Show taken_at in admin
 - [ ] Ensure photos with landscape orientation have sufficiently high resolution
+- [ ] Consider using Next.js Image component
 
 ## 🚀 Launch
 
