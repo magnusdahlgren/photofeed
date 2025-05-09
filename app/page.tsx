@@ -25,14 +25,11 @@ export default async function Home() {
         <h1>Magnus×365</h1>
         <UserMenuWithSignIn />
       </header>
-      <main>
-        <header>...</header>
-        {error ? (
-          <ErrorMessage message="Something went wrong loading the photo feed." />
-        ) : (
-          <PhotoFeed photos={photos ?? []} />
-        )}
-      </main>
+      {error ? (
+        <ErrorMessage message="Something went wrong loading the photo feed." />
+      ) : (
+        <PhotoFeed photos={photos} />
+      )}
     </main>
   );
 }
