@@ -44,6 +44,18 @@ export function formatDateUK(dateString: string) {
   return `${day}/${month}/${year}`;
 }
 
+export function formatDateTimeUK(dateString: string): string {
+  const date = new Date(dateString);
+
+  const day = date.getDate();
+  const month = date.getMonth() + 1; // 0-indexed
+  const year = date.getFullYear() % 100; // two-digit year
+  const hours = date.getHours().toString().padStart(2, "0");
+  const minutes = date.getMinutes().toString().padStart(2, "0");
+
+  return `${day}/${month}/${year} at ${hours}:${minutes}`;
+}
+
 export function randomPhotoId(length: number) {
   const characters = "abcdefghijklmnopqrstuvwxyz1234567890";
   const array = new Uint8Array(length);
