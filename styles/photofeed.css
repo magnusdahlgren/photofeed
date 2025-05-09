@@ -85,15 +85,39 @@ img.logo {
   box-sizing: border-box;
 }
 
-.photo-wrapper img {
-  max-height: 95vh;
+.photo-container {
+  position: relative;
+  display: inline-block;
   max-width: 95%;
+}
+
+.photo-container img {
   height: auto;
   width: auto;
+  max-width: 100%;
+  max-height: 95vh;
   object-fit: contain;
   border-radius: var(--border-radius-l);
   opacity: 0;
   animation: fadeIn 0.6s ease forwards;
+}
+
+.photo-container .photo-date {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  padding: 0.3rem 0.9rem;
+  font-size: 1rem;
+  letter-spacing: 0.1rem;
+  color: var(--color-lightest);
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  border-radius: 999rem;
+  display: none;
+}
+
+.photo-container:hover .photo-date {
+  display: block;
 }
 
 @keyframes fadeIn {

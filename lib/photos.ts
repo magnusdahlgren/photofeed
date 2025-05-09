@@ -54,6 +54,18 @@ export function randomPhotoId(length: number) {
     .join("");
 }
 
+export async function getPhotoById(id: string): Promise<Photo> {
+  const { data, error } = await supabase
+    .from("photos")
+    .select("*")
+    .eq("id", id)
+    .single();
+
+  if (error) throw new Error(`Failed to get photo ${id} from DB`);
+
+  return data;
+}
+
 export async function addPhoto(file: File): Promise<Photo> {
   if (!file) {
     throw new Error("No file selected");

@@ -11,7 +11,9 @@
 - [x] Move bucket name ("photos") to environment variable
 - [x] Masonry - react-masonry-css
 - [x] Add db column taken_at to store EXIF DateTimeOriginal when available
-- [ ] Use taken_at for photo detail page page title
+- [x] Use taken_at for photo detail page title
+- [x] Show taken_at on photo detail page
+- [ ] Ensure photos with landscape orientation have sufficiently high resolution
 
 ## 🚀 Launch
 
