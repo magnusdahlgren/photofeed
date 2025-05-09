@@ -39,14 +39,13 @@ img.logo {
 /* ==================== */
 
 .photo-feed-grid {
-  display: -ms-flexbox;
   display: flex;
   width: auto;
   margin: 0 auto;
   max-width: 60rem;
   padding: 0 0.5rem;
 }
-.photo-feed-grid_column {
+.photo-feed-grid-column {
   padding: 0 0.5rem;
   background-clip: padding-box;
 }
@@ -62,6 +61,7 @@ img.logo {
 }
 
 .photo-feed-grid a:hover img {
+  transition: opacity 0.3s ease;
   opacity: 80%;
 }
 

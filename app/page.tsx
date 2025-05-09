@@ -10,17 +10,9 @@ export default async function Home() {
     .select("*")
     .order("created_at", { ascending: false });
 
-  const photos: Photo[] = (data ?? []) as Photo[];
+  const photos = (data ?? []) as Photo[];
 
   let content;
-
-  if (error) {
-    content = (
-      <ErrorMessage message="Something went wrong loading the photo feed." />
-    );
-  } else {
-    content = <PhotoFeed photos={photos} />;
-  }
 
   return (
     <main>
@@ -33,7 +25,14 @@ export default async function Home() {
         <h1>Magnus×365</h1>
         <UserMenuWithSignIn />
       </header>
-      {content}
+      <main>
+        <header>...</header>
+        {error ? (
+          <ErrorMessage message="Something went wrong loading the photo feed." />
+        ) : (
+          <PhotoFeed photos={photos ?? []} />
+        )}
+      </main>
     </main>
   );
 }

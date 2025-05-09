@@ -25,7 +25,7 @@ export default function PhotoFeed({ photos }: Readonly<PhotoFeedProps>) {
     <Masonry
       breakpointCols={breakpointColumnsObj}
       className="photo-feed-grid"
-      columnClassName="photo-feed-grid_column"
+      columnClassName="photo-feed-grid-column"
     >
       {photos.map((photo) => (
         <div key={photo.id}>
