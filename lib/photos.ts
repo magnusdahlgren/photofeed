@@ -1,6 +1,7 @@
 import imageCompression from "browser-image-compression";
 import { supabase } from "@/lib/supabase";
 import { Photo } from "@/types/photo";
+import ExifReader from "exifreader";
 
 const bucket = process.env.NEXT_PUBLIC_SUPABASE_PHOTO_BUCKET!;
 const storageUrl = process.env.NEXT_PUBLIC_SUPABASE_STORAGE_URL;
@@ -59,6 +60,7 @@ export async function addPhoto(file: File): Promise<Photo> {
   }
 
   const id = randomPhotoId(7);
+  const taken_at = await extractTakenAt(file);
 
   for (const size of imageSizes) {
     const maxDimension = getPhotoMaxSize(size);
@@ -86,11 +88,11 @@ export async function addPhoto(file: File): Promise<Photo> {
 
   const { data: dbData, error: dbError } = await supabase
     .from("photos")
-    .insert([{ id }])
+    .insert([{ id, taken_at }])
     .select();
 
   if (dbError) {
-    throw new Error(`Failed to add photo ${id} to DB`);
+    throw new Error(`Failed to add photo ${id} to database`);
   }
 
   return dbData?.[0];
@@ -108,4 +110,28 @@ export async function deletePhoto(id: string): Promise<void> {
     .from(bucket)
     .remove(filePaths);
   if (storageError) throw new Error(`Failed to delete photo files for ${id}`);
+}
+
+export async function extractTakenAt(file: File): Promise<string | null> {
+  const arrayBuffer = await file.arrayBuffer();
+
+  try {
+    const tags = ExifReader.load(arrayBuffer);
+
+    const dateTimeOriginal = tags["DateTimeOriginal"]?.description;
+
+    if (!dateTimeOriginal) {
+      return null;
+    }
+
+    // Format: "2023:08:16 14:23:01" → "2023-08-16T14:23:01"
+    const [date, time] = dateTimeOriginal.split(" ");
+    const formatted = date.replace(/:/g, "-") + "T" + time;
+
+    const iso = new Date(formatted).toISOString(); // For storing in DB
+    return iso;
+  } catch (err) {
+    console.error("Failed to extract EXIF data:", err);
+    return null;
+  }
 }

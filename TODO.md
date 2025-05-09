@@ -10,6 +10,8 @@
 - [x] Update name to Magnus×365
 - [x] Move bucket name ("photos") to environment variable
 - [x] Masonry - react-masonry-css
+- [x] Add db column taken_at to store EXIF DateTimeOriginal when available
+- [ ] Use taken_at for photo detail page page title
 
 ## 🚀 Launch
 
