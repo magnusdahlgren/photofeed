@@ -9,7 +9,8 @@ interface Params {
 }
 
 export default async function PhotoModalPage({ params }: Params) {
-  const photo = await getPhotoById(params.id);
+  const { id } = await params;
+  const photo = await getPhotoById(id);
 
   return (
     <div className="photo-modal">
