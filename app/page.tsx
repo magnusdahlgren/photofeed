@@ -1,9 +1,8 @@
-import Link from "next/link";
 import { supabase } from "@/lib/supabase";
-import { getPhotoUrl } from "@/lib/photos";
 import { UserMenuWithSignIn } from "@/components/UserMenuWithSignIn";
 import type { Photo } from "@/types/photo";
 import ErrorMessage from "@/components/ErrorMessage";
+import PhotoFeed from "@/components/PhotoFeed";
 
 export default async function Home() {
   const { data, error } = await supabase
@@ -11,34 +10,9 @@ export default async function Home() {
     .select("*")
     .order("created_at", { ascending: false });
 
-  const photos = data as Photo[] | null;
+  const photos = (data ?? []) as Photo[];
 
   let content;
-
-  if (error) {
-    content = (
-      <ErrorMessage message="Something went wrong loading the photo feed." />
-    );
-  } else if (!photos?.length) {
-    content = <ErrorMessage message="No photos found." />;
-  } else {
-    content = (
-      <ul className="photo-feed">
-        {photos.map((photo) => (
-          <li key={photo.id}>
-            <Link href={`/p/${photo.id}`}>
-              <img
-                src={getPhotoUrl(photo.id, "small")}
-                alt=""
-                className="fadeIn"
-                loading="lazy"
-              />
-            </Link>
-          </li>
-        ))}
-      </ul>
-    );
-  }
 
   return (
     <main>
@@ -51,7 +25,11 @@ export default async function Home() {
         <h1>Magnus×365</h1>
         <UserMenuWithSignIn />
       </header>
-      {content}
+      {error ? (
+        <ErrorMessage message="Something went wrong loading the photo feed." />
+      ) : (
+        <PhotoFeed photos={photos} />
+      )}
     </main>
   );
 }
