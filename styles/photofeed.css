@@ -38,47 +38,36 @@ img.logo {
 /* 4. Photo Feed        */
 /* ==================== */
 
-ul.photo-feed {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
-  gap: 2rem;
-  list-style: none;
-  max-width: 60rem;
+.photo-feed-grid {
+  display: -ms-flexbox;
+  display: flex;
+  width: auto;
   margin: 0 auto;
-  padding: 0 2rem 5rem 2rem;
+  max-width: 60rem;
+  padding: 0 0.5rem;
+}
+.photo-feed-grid_column {
+  padding: 0 0.5rem;
+  background-clip: padding-box;
 }
 
-.photo-feed li {
-  display: block;
-  list-style-type: none;
-}
-
-.photo-feed img {
-  aspect-ratio: 2 / 3;
-  object-fit: cover;
+.photo-feed-grid img {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: var(--border-radius-s);
+  margin-bottom: 1rem;
+  border-radius: var(--border-radius-m);
   transform: translateY(1rem);
   animation: moveIn 0.6s ease forwards;
 }
 
-.photo-feed a:hover img {
+.photo-feed-grid a:hover img {
   opacity: 80%;
 }
 
 @keyframes moveIn {
   to {
     transform: none;
-  }
-}
-
-@media (max-width: 600px) {
-  ul.photo-feed {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    padding: 0 1rem 5rem 1rem;
   }
 }
 

@@ -9,6 +9,7 @@
 - [x] Mobile-friendly layout
 - [x] Update name to Magnus×365
 - [x] Move bucket name ("photos") to environment variable
+- [x] Masonry - react-masonry-css
 
 ## 🚀 Launch
 
@@ -28,7 +29,6 @@
 
 ## 🔮 Possible future enhancements
 
-- [ ] Masonry - react-masonry-css
 - [ ] Menu keyboard accessibility
 - [ ] Add keyboard nav for alert (ESC / return)
 - [ ] Add smooth transitions for adding/removing photos (e.g. with framer-motion)
