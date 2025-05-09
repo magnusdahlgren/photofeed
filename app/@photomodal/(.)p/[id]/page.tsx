@@ -3,9 +3,7 @@ import PhotoDetail from "@/components/PhotoDetail";
 import { getPhotoById } from "@/lib/photos";
 
 interface Params {
-  params: {
-    id: string;
-  };
+  readonly params: Promise<{ id: string }>;
 }
 
 export default async function PhotoModalPage({ params }: Params) {
