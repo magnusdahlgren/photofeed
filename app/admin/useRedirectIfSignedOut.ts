@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 
-export function useRedirectIfSignedOut() {
+export function useRedirectIfSignedOut(): { isLoading: boolean } {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
 
