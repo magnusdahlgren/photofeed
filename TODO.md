@@ -21,32 +21,37 @@
 
 1. Supabase setup
 
-- [ ] Set up separate DB for production
-  - [ ] Create project for prod
-  - [ ] Create 'photos' table
-  - [ ] Replicate db RLS rules from dev
-- [ ] Set up separate bucket for production
-  - [ ] Replicate bucket policies from dev
-  - [ ] Upload a test photo and view anonymously (to confirm public read access)
+- [x] Set up separate DB for production
+  - [x] Create project for prod
+  - [x] Create 'photos' table
+  - [x] Replicate db RLS rules from dev
+- [x] Set up separate bucket for production
+  - [x] Create bucket
+  - [x] Replicate bucket policies from dev
+  - [x] Upload a test photo and view anonymously (to confirm public read access)
 
 2. Config
 
 - [ ] Create prod env config
-  - [ ] Add prod db
-  - [ ] Add prod bucket
+  - [x] Create .env.production
+  - [x] Add prod db
+  - [x] Add prod bucket
   - [ ] Test prod env locally (rename `.env.production` to `.env.local` temporarily)
-    - [ ] Create user (temporarily enable sign up)
-    - [ ] Test/verify db policies
-    - [ ] Test/verify bucket policies
+    - [x] Create user (temporarily enable sign up)
+    - [x] Disable sign up
+    - [x] Test/verify db policies
+    - [x] Test/verify bucket policies
+    - [x] Rename env back to .env.production
 
 3. Prevent indexing
 
-- [ ] Create public/robots.txt to prevent indexing (I don't want to be on Google)
+- [x] Create public/robots.txt to prevent indexing (I don't want to be on Google)
 
 4. Vercel
 
 - [ ] Create Vercel account
 - [ ] Enable HTTPS (auto via Vercel, but verify)
+- [ ] Add temporary NEXT_PUBLIC_SITE_URL to production env
 - [ ] Deploy to Vercel
 - [ ] QA in prod
 
@@ -55,6 +60,7 @@
 - [ ] Decide on custom domain
 - [ ] Register domain
 - [ ] Point domain to Vercel
+- [ ] Add correct NEXT_PUBLIC_SITE_URL to production env
 - [ ] Check custom domain redirects (www → non-www or vice versa, if relevant)
 
 6. QA
