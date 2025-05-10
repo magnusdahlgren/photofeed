@@ -14,7 +14,7 @@
 - [x] Use taken_at for photo detail page title
 - [x] Show taken_at date on photo detail page
 - [x] Show taken_at date in admin
-- [ ] Use Next.js Image instead for handling image sizes, uploading original only
+- [x] Use Next.js Image instead for handling image sizes, uploading original only
 
 ## 🚀 Launch
 
