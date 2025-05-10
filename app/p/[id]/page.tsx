@@ -5,12 +5,6 @@ import ErrorMessage from "@/components/ErrorMessage";
 import { Metadata } from "next";
 import { getPhotoById } from "@/lib/photos";
 
-interface Params {
-  params: {
-    id: string;
-  };
-}
-
 export async function generateMetadata({
   params,
 }: {
