@@ -37,7 +37,11 @@ export async function generateMetadata({
   }
 }
 
-export default async function PhotoPage({ params }: Readonly<Params>) {
+export default async function PhotoPage({
+  params,
+}: {
+  params: { id: string };
+}) {
   let content;
 
   try {
