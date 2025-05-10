@@ -15,6 +15,7 @@
 - [x] Show taken_at date on photo detail page
 - [x] Show taken_at date in admin
 - [x] Use Next.js Image instead for handling image sizes, uploading original only
+- [x] Custom 404 page
 
 ## 🚀 Launch
 
@@ -30,7 +31,6 @@
 
 - [ ] Add automated tests + re-enable SonarQube code coverage check
 - [ ] Lazy loading the photo feed (once I have more than 30 photos)
-- [ ] Custom 404 page
 
 ## 🔮 Possible future enhancements
 
