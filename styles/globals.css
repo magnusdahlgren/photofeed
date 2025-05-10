@@ -154,6 +154,7 @@ dialog::backdrop {
   cursor: pointer;
   transition: 0.2s ease;
   text-transform: uppercase;
+  text-decoration: none;
 }
 
 .primary-button:hover,

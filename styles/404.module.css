@@ -1,0 +1,23 @@
+.notFoundPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+  padding: 0 1rem;
+  gap: 2rem;
+}
+
+.notFoundPage header {
+  padding: 0;
+}
+
+.notFoundPage header h1 {
+  font-size: 3rem;
+}
+
+.notFoundPage p {
+  font-size: 1.25rem;
+  margin: 2rem 0 5rem 0;
+}
