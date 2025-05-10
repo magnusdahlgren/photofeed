@@ -1,7 +1,14 @@
+"use client";
+
 import Link from "next/link";
 import styles from "../styles/404.module.css";
+import { useEffect } from "react";
 
 export default function NotFound() {
+  useEffect(() => {
+    document.title = "Page not found";
+  }, []);
+
   return (
     <main className={styles.notFoundPage}>
       <header>
