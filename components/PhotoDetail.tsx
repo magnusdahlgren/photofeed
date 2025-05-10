@@ -20,7 +20,7 @@ export default function PhotoDetail({ photo }: Readonly<PhotoDetailProps>) {
           height={720}
           className="fadeIn"
           sizes="(max-width: 768px) 100vw, 800px"
-          style={{ width: "100%", height: "auto" }}
+          style={{ height: "auto" }}
         />
         {taken_at && <p className="photo-date">{taken_at}</p>}
       </div>
