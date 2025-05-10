@@ -79,7 +79,7 @@ export async function addPhoto(file: File): Promise<Photo> {
     });
 
   if (uploadError) {
-    console.error(`Error uploading file ${filePath}`);
+    console.error(`Error uploading file ${filePath}:`, uploadError);
     throw new Error(`Error uploading file ${filePath}`);
   }
 
