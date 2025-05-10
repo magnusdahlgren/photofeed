@@ -2,12 +2,12 @@ import CloseButton from "@/components/CloseButton";
 import PhotoDetail from "@/components/PhotoDetail";
 import { getPhotoById } from "@/lib/photos";
 
-export default async function PhotoModalPage({
+export default async function Page({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
-  const { id } = params;
+  const { id } = await params;
   const photo = await getPhotoById(id);
 
   return (
