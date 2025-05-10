@@ -19,18 +19,57 @@
 
 ## 🚀 Launch
 
+1. Supabase setup
+
 - [ ] Set up separate DB for production
+  - [ ] Create project for prod
+  - [ ] Create 'photos' table
+  - [ ] Replicate db RLS rules from dev
 - [ ] Set up separate bucket for production
+  - [ ] Replicate bucket policies from dev
+  - [ ] Upload a test photo and view anonymously (to confirm public read access)
+
+2. Config
+
 - [ ] Create prod env config
-- [ ] Create robots.txt to prevent indexing
-- [ ] Deploy to prod (Vercel?)
+  - [ ] Add prod db
+  - [ ] Add prod bucket
+  - [ ] Test prod env locally (rename `.env.production` to `.env.local` temporarily)
+    - [ ] Create user (temporarily enable sign up)
+    - [ ] Test/verify db policies
+    - [ ] Test/verify bucket policies
+
+3. Prevent indexing
+
+- [ ] Create public/robots.txt to prevent indexing (I don't want to be on Google)
+
+4. Vercel
+
+- [ ] Create Vercel account
+- [ ] Enable HTTPS (auto via Vercel, but verify)
+- [ ] Deploy to Vercel
+- [ ] QA in prod
+
+5. Custom domain
+
+- [ ] Decide on custom domain
 - [ ] Register domain
-- [ ] Point domain to prod site
+- [ ] Point domain to Vercel
+- [ ] Check custom domain redirects (www → non-www or vice versa, if relevant)
+
+6. QA
+
+- [ ] QA in prod
+  - [ ] Upload photos
+  - [ ] View photos
+  - [ ] Delete photos
+- [ ] Verify robots.txt from Google
 
 ## 🧹 After launch
 
 - [ ] Add automated tests + re-enable SonarQube code coverage check
 - [ ] Lazy loading the photo feed (once I have more than 30 photos)
+- [ ] Favicon
 
 ## 🔮 Possible future enhancements
 
