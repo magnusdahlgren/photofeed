@@ -1,4 +1,3 @@
-import imageCompression from "browser-image-compression";
 import { supabase } from "@/lib/supabase";
 import { Photo } from "@/types/photo";
 import ExifReader from "exifreader";
@@ -12,27 +11,12 @@ if (!storageUrl) {
   throw new Error("Missing env var: NEXT_PUBLIC_SUPABASE_STORAGE_URL");
 }
 
-export const imageSizes = ["small", "large"] as const;
-export type ImageSize = (typeof imageSizes)[number];
-
-export function getPhotoUrl(id: string, size: ImageSize = "large"): string {
-  return `${storageUrl}/${bucket}/${getPhotoFileName(id, size)}`;
+export function getPhotoUrl(id: string): string {
+  return `${storageUrl}/${bucket}/${getPhotoFileName(id)}`;
 }
 
-export function getPhotoFileName(
-  id: string,
-  size: ImageSize = "large"
-): string {
-  return `${id}_${size}.jpg`;
-}
-
-export function getPhotoMaxSize(size: ImageSize = "large") {
-  const sizes = {
-    small: 400,
-    large: 1080,
-  } as const;
-
-  return sizes[size] ?? sizes.large;
+export function getPhotoFileName(id: string): string {
+  return `${id}.jpg`;
 }
 
 export function formatDateUK(dateString: string) {
@@ -85,29 +69,18 @@ export async function addPhoto(file: File): Promise<Photo> {
 
   const id = randomPhotoId(7);
   const taken_at = await extractTakenAt(file);
+  const filePath = getPhotoFileName(id);
 
-  for (const size of imageSizes) {
-    const maxDimension = getPhotoMaxSize(size);
-    const filePath = getPhotoFileName(id, size);
-    let compressedFile: File;
-
-    compressedFile = await imageCompression(file, {
-      maxWidthOrHeight: maxDimension,
-      maxSizeMB: 0.2,
-      initialQuality: 0.8,
-      useWebWorker: true,
+  const { error: uploadError } = await supabase.storage
+    .from(bucket)
+    .upload(filePath, file, {
+      cacheControl: "3600",
+      upsert: false,
     });
 
-    const { error: uploadError } = await supabase.storage
-      .from(bucket)
-      .upload(filePath, compressedFile, {
-        cacheControl: "3600",
-        upsert: false,
-      });
-
-    if (uploadError) {
-      throw new Error(`Error uploading file ${filePath}`);
-    }
+  if (uploadError) {
+    console.error(`Error uploading file ${filePath}`);
+    throw new Error(`Error uploading file ${filePath}`);
   }
 
   const { data: dbData, error: dbError } = await supabase
@@ -129,11 +102,11 @@ export async function deletePhoto(id: string): Promise<void> {
     .eq("id", id);
   if (dbError) throw new Error(`Failed to delete photo ${id} from DB`);
 
-  const filePaths = imageSizes.map((size) => getPhotoFileName(id, size));
+  const filePath = getPhotoFileName(id);
   const { error: storageError } = await supabase.storage
     .from(bucket)
-    .remove(filePaths);
-  if (storageError) throw new Error(`Failed to delete photo files for ${id}`);
+    .remove([filePath]);
+  if (storageError) throw new Error(`Failed to delete photo file for ${id}`);
 }
 
 export async function extractTakenAt(file: File): Promise<string | null> {

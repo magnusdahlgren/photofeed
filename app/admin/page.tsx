@@ -1,17 +1,17 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
-import { getPhotoUrl, formatDateUK, deletePhoto } from '@/lib/photos';
+import { deletePhoto } from '@/lib/photos';
 import { AddPhotoButton } from './AddPhotoButton';
-import { DeletePhotoButton } from './DeletePhotoButton';
 import { AlertDialog } from '@/components/AlertDialog';
 import { UserMenuWithSignIn } from '@/components/UserMenuWithSignIn';
 import { HomeButton } from './HomeButton';
 import { LoadingScreen } from '@/components/LoadingScreen';
 import type { Photo } from '@/types/photo';
 import ErrorMessage from '@/components/ErrorMessage';
+import { useRedirectIfSignedOut } from './useRedirectIfSignedOut';
+import { PhotoAdminList } from './PhotoAdminList';
 
 export default function AdminPage() {
   const [photos, setPhotos] = useState<Photo[]>([]);
@@ -20,21 +20,7 @@ export default function AdminPage() {
   const [alertMessage, setAlertMessage] = useState<string | null>(null);
   const [photoToDelete, setPhotoToDelete] = useState<string | null>(null);
 
-  const router = useRouter();
-
-  useEffect(() => {
-    async function checkUser() {
-      const {
-        data: { user },
-      } = await supabase.auth.getUser();
-
-      if (!user) {
-        router.push('/');
-      }
-    }
-
-    checkUser();
-  }, []);
+  useRedirectIfSignedOut();
 
   useEffect(() => {
     async function fetchPhotos() {
@@ -64,29 +50,7 @@ export default function AdminPage() {
   } else if (photos.length === 0) {
     content = <ErrorMessage message="No photos found." />;
   } else {
-    content = (
-      <div className="photo-list">
-        {photos.map((photo) => (
-          <div key={photo.id} className="photo-row">
-            <button
-              className="thumbnail-container"
-              onClick={() => router.push(`/p/${photo.id}?from=admin`)}
-              aria-label="Preview photo"
-            >
-              <img src={getPhotoUrl(photo.id, 'small')} alt="" className="thumbnail" />
-              <div className="thumbnail-overlay" />
-            </button>
-            <div className="photo-id">{photo.id}</div>
-            {photo.taken_at ? (
-              <div className="photo-date-taken-at">{formatDateUK(photo.taken_at)}</div>
-            ) : (
-              <div className="photo-date-uploaded-on">{formatDateUK(photo.created_at)}</div>
-            )}
-            <DeletePhotoButton id={photo.id} onRequestDelete={(id) => setPhotoToDelete(id)} />
-          </div>
-        ))}
-      </div>
-    );
+    content = <PhotoAdminList photos={photos} onRequestDelete={setPhotoToDelete} />;
   }
 
   async function handleConfirmDelete(photoId: string) {
