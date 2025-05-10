@@ -1,7 +1,16 @@
-import type { NextConfig } from "next";
+/** @type {import('next').NextConfig} */
+const storageUrl = process.env.NEXT_PUBLIC_SUPABASE_STORAGE_URL;
 
-const nextConfig: NextConfig = {
-  /* config options here */
+if (!storageUrl) {
+  throw new Error(
+    "Missing NEXT_PUBLIC_SUPABASE_STORAGE_URL in environment variables"
+  );
+}
+
+const nextConfig = {
+  images: {
+    domains: [new URL(storageUrl).hostname],
+  },
 };
 
-export default nextConfig;
+module.exports = nextConfig;

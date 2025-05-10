@@ -14,8 +14,7 @@
 - [x] Use taken_at for photo detail page title
 - [x] Show taken_at date on photo detail page
 - [x] Show taken_at date in admin
-- [ ] Ensure photos with landscape orientation have sufficiently high resolution
-- [ ] Consider using Next.js Image component
+- [x] Use Next.js Image instead for handling image sizes, uploading original only
 
 ## 🚀 Launch
 

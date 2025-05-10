@@ -2,6 +2,7 @@
 
 import Masonry from "react-masonry-css";
 import Link from "next/link";
+import Image from "next/image";
 import { getPhotoUrl } from "@/lib/photos";
 import { Photo } from "@/types/photo";
 import ErrorMessage from "./ErrorMessage";
@@ -30,12 +31,18 @@ export default function PhotoFeed({ photos }: Readonly<PhotoFeedProps>) {
       {photos.map((photo) => (
         <div key={photo.id}>
           <Link href={`/p/${photo.id}`}>
-            <img
-              src={getPhotoUrl(photo.id, "small")}
+            <Image
+              src={getPhotoUrl(photo.id)}
               alt=""
+              width={400}
+              height={400}
               className="fadeIn"
               loading="lazy"
-            />
+              style={{
+                width: "100%",
+                height: "auto",
+              }}
+            />{" "}
           </Link>
         </div>
       ))}
