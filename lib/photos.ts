@@ -1,3 +1,4 @@
+import { revalidateHomePage } from "@/app/actions/revalidate";
 import { supabase } from "@/lib/supabase";
 import { Photo } from "@/types/photo";
 import ExifReader from "exifreader";
@@ -92,6 +93,7 @@ export async function addPhoto(file: File): Promise<Photo> {
     throw new Error(`Failed to add photo ${id} to database`);
   }
 
+  await revalidateHomePage();
   return dbData?.[0];
 }
 
@@ -107,6 +109,8 @@ export async function deletePhoto(id: string): Promise<void> {
     .from(bucket)
     .remove([filePath]);
   if (storageError) throw new Error(`Failed to delete photo file for ${id}`);
+
+  await revalidateHomePage();
 }
 
 export async function extractTakenAt(file: File): Promise<string | null> {
