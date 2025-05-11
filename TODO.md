@@ -58,15 +58,16 @@
 5. Custom domain
 
 - [x] Decide on custom domain --> use existing magnusd.com
-- [ ] Point domain to Vercel
-- [ ] Add correct NEXT_PUBLIC_SITE_URL to production env
-- [ ] Check custom domain redirects (www → non-www or vice versa, if relevant)
+- [x] Point domain to Vercel
+- [x] Add correct NEXT_PUBLIC_SITE_URL to production env
+- [x] Check custom domain redirects (www → non-www or vice versa, if relevant)
+- [x] Update Supabase with new domain
 
 6. QA
 
-- [ ] QA in prod
-  - [ ] Photo feed
-  - [ ] Sign in
+- [x] QA in prod
+  - [x] Photo feed
+  - [x] Sign in
   - [ ] Upload photos
   - [ ] View photos
   - [ ] Delete photos
