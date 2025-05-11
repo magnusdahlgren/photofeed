@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.49.4",
+    "@vercel/speed-insights": "^1.2.0",
     "browser-image-compression": "^2.0.2",
     "exifreader": "^4.30.1",
     "next": "15.3.1",

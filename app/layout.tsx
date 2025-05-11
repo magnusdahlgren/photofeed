@@ -1,6 +1,7 @@
 import "../styles/variables.css";
 import "../styles/globals.css";
 import "../styles/photofeed.css";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata = {
   title: "Magnus×365",
@@ -30,6 +31,7 @@ export default function PhotofeedLayout({
       <body>
         {children}
         {photomodal}
+        {process.env.NODE_ENV === "production" && <SpeedInsights />}
       </body>
     </html>
   );
