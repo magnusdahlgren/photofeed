@@ -4,6 +4,8 @@ import type { Photo } from "@/types/photo";
 import ErrorMessage from "@/components/ErrorMessage";
 import PhotoFeed from "@/components/PhotoFeed";
 
+export const revalidate = 5;
+
 export default async function Home() {
   const { data, error } = await supabase
     .from("photos")
