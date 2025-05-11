@@ -32,7 +32,7 @@
 
 2. Config
 
-- [ ] Create prod env config
+- [x] Create prod env config
   - [x] Create .env.production
   - [x] Add prod db
   - [x] Add prod bucket
@@ -53,7 +53,7 @@
 - [x] Enable HTTPS (auto via Vercel, but verify)
 - [ ] Add temporary NEXT_PUBLIC_SITE_URL to production env
 - [x] Deploy to Vercel
-- [ ] QA in prod
+- [x] QA in prod
 
 5. Custom domain
 
@@ -75,6 +75,7 @@
 
 ## 🧹 After launch
 
+- [ ] Set up Vercel's Speed Insights
 - [ ] Add automated tests + re-enable SonarQube code coverage check
 - [ ] Lazy loading the photo feed (once I have more than 30 photos)
 - [ ] Favicon
