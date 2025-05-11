@@ -5,19 +5,15 @@ import ErrorMessage from "@/components/ErrorMessage";
 import { Metadata } from "next";
 import { getPhotoById } from "@/lib/photos";
 
-interface Params {
-  params: {
-    id: string;
-  };
-}
-
 export async function generateMetadata({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }): Promise<Metadata> {
+  const { id } = await params;
+
   try {
-    const photo = await getPhotoById(params.id);
+    const photo = await getPhotoById(id);
 
     const takenAt = photo?.taken_at
       ? new Date(photo.taken_at).toLocaleDateString("en-GB", {
@@ -37,26 +33,31 @@ export async function generateMetadata({
   }
 }
 
-export default async function PhotoPage({ params }: Readonly<Params>) {
-  let content;
+export default async function PhotoPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
 
   try {
-    const photo = await getPhotoById(params.id);
-    content = <PhotoDetail photo={photo} />;
+    const photo = await getPhotoById(id);
+    return (
+      <main>
+        <Link href="/" className="back-button" aria-label="Go back" />
+        <PhotoDetail photo={photo} />
+      </main>
+    );
   } catch (error: any) {
     if (error.message.includes("Failed to get photo")) {
       notFound();
-    } else {
-      content = (
-        <ErrorMessage message="There was an error loading the photo." />
-      );
     }
-  }
 
-  return (
-    <main>
-      <Link href="/" className="back-button" aria-label="Go back" />
-      {content}
-    </main>
-  );
+    return (
+      <main>
+        <Link href="/" className="back-button" aria-label="Go back" />
+        <ErrorMessage message="There was an error loading the photo." />
+      </main>
+    );
+  }
 }

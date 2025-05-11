@@ -19,18 +19,64 @@
 
 ## 🚀 Launch
 
-- [ ] Set up separate DB for production
-- [ ] Set up separate bucket for production
+1. Supabase setup
+
+- [x] Set up separate DB for production
+  - [x] Create project for prod
+  - [x] Create 'photos' table
+  - [x] Replicate db RLS rules from dev
+- [x] Set up separate bucket for production
+  - [x] Create bucket
+  - [x] Replicate bucket policies from dev
+  - [x] Upload a test photo and view anonymously (to confirm public read access)
+
+2. Config
+
 - [ ] Create prod env config
-- [ ] Create robots.txt to prevent indexing
-- [ ] Deploy to prod (Vercel?)
-- [ ] Register domain
-- [ ] Point domain to prod site
+  - [x] Create .env.production
+  - [x] Add prod db
+  - [x] Add prod bucket
+  - [x] Test prod env locally (rename `.env.production` to `.env.local` temporarily)
+    - [x] Create user (temporarily enable sign up)
+    - [x] Disable sign up
+    - [x] Test/verify db policies
+    - [x] Test/verify bucket policies
+    - [x] Rename env back to .env.production
+
+3. Prevent indexing
+
+- [x] Create public/robots.txt to prevent indexing (I don't want to be on Google)
+
+4. Vercel
+
+- [x] Create Vercel account
+- [x] Enable HTTPS (auto via Vercel, but verify)
+- [ ] Add temporary NEXT_PUBLIC_SITE_URL to production env
+- [x] Deploy to Vercel
+- [ ] QA in prod
+
+5. Custom domain
+
+- [x] Decide on custom domain --> use existing magnusd.com
+- [ ] Point domain to Vercel
+- [ ] Add correct NEXT_PUBLIC_SITE_URL to production env
+- [ ] Check custom domain redirects (www → non-www or vice versa, if relevant)
+
+6. QA
+
+- [ ] QA in prod
+  - [ ] Photo feed
+  - [ ] Sign in
+  - [ ] Upload photos
+  - [ ] View photos
+  - [ ] Delete photos
+- [ ] Verify robots.txt from Google
 
 ## 🧹 After launch
 
 - [ ] Add automated tests + re-enable SonarQube code coverage check
 - [ ] Lazy loading the photo feed (once I have more than 30 photos)
+- [ ] Favicon
 
 ## 🔮 Possible future enhancements
 
