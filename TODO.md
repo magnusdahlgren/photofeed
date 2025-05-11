@@ -36,7 +36,7 @@
   - [x] Create .env.production
   - [x] Add prod db
   - [x] Add prod bucket
-  - [ ] Test prod env locally (rename `.env.production` to `.env.local` temporarily)
+  - [x] Test prod env locally (rename `.env.production` to `.env.local` temporarily)
     - [x] Create user (temporarily enable sign up)
     - [x] Disable sign up
     - [x] Test/verify db policies
@@ -49,16 +49,15 @@
 
 4. Vercel
 
-- [ ] Create Vercel account
-- [ ] Enable HTTPS (auto via Vercel, but verify)
+- [x] Create Vercel account
+- [x] Enable HTTPS (auto via Vercel, but verify)
 - [ ] Add temporary NEXT_PUBLIC_SITE_URL to production env
-- [ ] Deploy to Vercel
+- [x] Deploy to Vercel
 - [ ] QA in prod
 
 5. Custom domain
 
-- [ ] Decide on custom domain
-- [ ] Register domain
+- [x] Decide on custom domain --> use existing magnusd.com
 - [ ] Point domain to Vercel
 - [ ] Add correct NEXT_PUBLIC_SITE_URL to production env
 - [ ] Check custom domain redirects (www → non-www or vice versa, if relevant)
@@ -66,6 +65,8 @@
 6. QA
 
 - [ ] QA in prod
+  - [ ] Photo feed
+  - [ ] Sign in
   - [ ] Upload photos
   - [ ] View photos
   - [ ] Delete photos
