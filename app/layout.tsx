@@ -5,6 +5,9 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata = {
   title: "Magnus×365",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function PhotofeedLayout({
@@ -17,7 +20,6 @@ export default function PhotofeedLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
