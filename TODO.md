@@ -3,9 +3,10 @@
 ## 🧹 After launch
 
 - [x] Set up Vercel's Speed Insights
+- [x] Revalidate cache after image upload/deletion
+- [x] Favicon
 - [ ] Add automated tests + re-enable SonarQube code coverage check
 - [ ] Lazy loading the photo feed (once I have more than 30 photos)
-- [ ] Favicon
 
 ## 🔮 Possible future enhancements
 
