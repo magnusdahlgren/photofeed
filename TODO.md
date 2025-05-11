@@ -68,10 +68,10 @@
 - [x] QA in prod
   - [x] Photo feed
   - [x] Sign in
-  - [ ] Upload photos
-  - [ ] View photos
-  - [ ] Delete photos
-- [ ] Verify robots.txt from Google
+  - [x] Upload photos
+  - [x] View photos
+  - [x] Delete photos
+- [x] Verify robots.txt from Google
 
 ## 🧹 After launch
 
