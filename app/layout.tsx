@@ -31,7 +31,7 @@ export default function PhotofeedLayout({
       <body>
         {children}
         {photomodal}
-        <SpeedInsights />
+        {process.env.NODE_ENV === "production" && <SpeedInsights />}
       </body>
     </html>
   );
