@@ -16,13 +16,19 @@ export default function PhotoDetail({ photo }: Readonly<PhotoDetailProps>) {
         <Image
           src={src}
           alt=""
-          width={1080}
-          height={720}
+          fill
+          sizes="100vw"
+          style={{
+            maxWidth: "100%",
+            maxHeight: "100%",
+            objectFit: "contain",
+          }}
           className="fadeIn"
-          sizes="(max-width: 768px) 100vw, 800px"
-          style={{ height: "auto" }}
         />
-        {taken_at && <p className="photo-date">{taken_at}</p>}
+        <div className="photo-info">
+          {taken_at && <p className="photo-date">{taken_at}</p>}
+          <div className="photo-info-icon" />
+        </div>
       </div>
     </div>
   );

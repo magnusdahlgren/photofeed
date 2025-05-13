@@ -19,7 +19,6 @@
 - [ ] Menu keyboard accessibility
 - [ ] Add keyboard nav for alert (ESC / return)
 - [ ] Add smooth transitions for adding/removing photos (e.g. with framer-motion)
-- [ ] Unique page titles
 
 ---
 
@@ -66,6 +65,7 @@
 ## 💡 Nice to have
 
 - [x] Delete image files from the bucket when deleting a photo from the db
+- [x] Unique-ish page titles
 
 ## 🧹 Maintenance
 
