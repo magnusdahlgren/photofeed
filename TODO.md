@@ -1,5 +1,10 @@
 # TODO
 
+## 🐞 Bugs (zero bug policy)
+
+- [x] Link colour for menu should be --color-darkest
+- [ ] Image should scale to fill the space on photo detail page
+
 ## 🧹 After launch
 
 - [x] Set up Vercel's Speed Insights
@@ -7,6 +12,7 @@
 - [x] Favicon
 - [ ] Add automated tests + re-enable SonarQube code coverage check
 - [ ] Lazy loading the photo feed (once I have more than 30 photos)
+- [ ] Buttons to go to next/previous photo on photo detail page
 
 ## 🔮 Possible future enhancements
 
