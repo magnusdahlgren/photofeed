@@ -2,7 +2,7 @@
 
 ## 🐞 Bugs (zero bug policy)
 
-- [x] Link colour for menu should be --color-darkest
+- [x] Link colour for menu should be --color-darker
 - [ ] Image should scale to fill the space on photo detail page
 
 ## 🧹 After launch
