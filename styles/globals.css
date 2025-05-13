@@ -238,11 +238,13 @@ dialog::backdrop {
   font-size: 1rem;
   cursor: pointer;
   text-decoration: none;
+  color: var(--color-darker);
 }
 
 .user-menu button:hover,
 .user-menu a:hover {
   background-color: var(--color-lightest);
+  color: var(--color-darker);
 }
 
 .sign-in-button {
