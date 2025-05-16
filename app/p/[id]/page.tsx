@@ -3,7 +3,11 @@ import PhotoDetail from "@/components/PhotoDetail";
 import { notFound } from "next/navigation";
 import ErrorMessage from "@/components/ErrorMessage";
 import { Metadata } from "next";
-import { getPhotoById } from "@/lib/photos";
+import {
+  getPhotoById,
+  getPrevPhotoIdByCreatedAt,
+  getNextPhotoIdByCreatedAt,
+} from "@/lib/photos";
 
 export async function generateMetadata({
   params,
@@ -42,10 +46,13 @@ export default async function PhotoPage({
 
   try {
     const photo = await getPhotoById(id);
+    const { prevId } = await getPrevPhotoIdByCreatedAt(photo.created_at);
+    const { nextId } = await getNextPhotoIdByCreatedAt(photo.created_at);
+
     return (
       <main>
         <Link href="/" className="back-button" aria-label="Go back" />
-        <PhotoDetail photo={photo} />
+        <PhotoDetail photo={photo} prevId={prevId} nextId={nextId} />
       </main>
     );
   } catch (error: any) {

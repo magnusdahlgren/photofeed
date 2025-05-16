@@ -63,6 +63,31 @@ export async function getPhotoById(id: string): Promise<Photo> {
   return data;
 }
 
+export async function getPrevPhotoIdByCreatedAt(currentDate: string): Promise<{
+  prevId: string | null;
+}> {
+  const { data: prev } = await supabase
+    .from("photos")
+    .select("id")
+    .gt("created_at", currentDate)
+    .order("created_at", { ascending: true })
+    .limit(1);
+  return { prevId: prev?.[0]?.id ?? null };
+}
+
+export async function getNextPhotoIdByCreatedAt(currentDate: string): Promise<{
+  nextId: string | null;
+}> {
+  const { data: next } = await supabase
+    .from("photos")
+    .select("id")
+    .lt("created_at", currentDate)
+    .order("created_at", { ascending: false })
+    .limit(1);
+
+  return { nextId: next?.[0]?.id ?? null };
+}
+
 export async function addPhoto(file: File): Promise<Photo> {
   if (!file) {
     throw new Error("No file selected");

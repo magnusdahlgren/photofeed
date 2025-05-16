@@ -30,7 +30,7 @@ export default function PhotoFeed({ photos }: Readonly<PhotoFeedProps>) {
     >
       {photos.map((photo) => (
         <div key={photo.id}>
-          <Link href={`/p/${photo.id}`}>
+          <Link href={`/p/${photo.id}`} scroll={false}>
             <Image
               src={getPhotoUrl(photo.id)}
               alt=""
