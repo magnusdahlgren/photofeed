@@ -109,7 +109,7 @@ img.logo {
   height: 2.5rem;
   min-width: 2.5rem;
   cursor: pointer;
-  opacity: 0.5;
+  opacity: 0.1;
 }
 
 .photo-date {
