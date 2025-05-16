@@ -1,24 +1,20 @@
 import Image from "next/image";
-import {
-  formatDateTimeUK,
-  getNextPhotoIdByCreatedAt,
-  getPhotoById,
-  getPhotoUrl,
-  getPrevPhotoIdByCreatedAt,
-} from "@/lib/photos";
+import { formatDateTimeUK, getPhotoUrl } from "@/lib/photos";
 import { Photo } from "@/types/photo";
-import Link from "next/link";
+import { PhotoNavArrows } from "./PhotoNavArrows";
 
 interface PhotoDetailProps {
   photo: Photo;
   prevId?: string | null;
   nextId?: string | null;
+  showArrows?: boolean;
 }
 
 export default function PhotoDetail({
   photo,
   prevId,
   nextId,
+  showArrows,
 }: Readonly<PhotoDetailProps>) {
   const src = getPhotoUrl(photo.id);
   const taken_at = photo.taken_at ? formatDateTimeUK(photo.taken_at) : null;
@@ -43,8 +39,8 @@ export default function PhotoDetail({
           <div className="photo-info-icon" />
         </div>
       </div>
-      {prevId && <Link href={`/p/${prevId}`} className="nav-arrow prev" />}
-      {nextId && <Link href={`/p/${nextId}`} className="nav-arrow next" />}
+
+      {showArrows && <PhotoNavArrows prevId={prevId} nextId={nextId} />}
     </div>
   );
 }

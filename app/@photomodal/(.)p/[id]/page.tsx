@@ -19,7 +19,12 @@ export default async function Page({
   return (
     <div className="photo-modal">
       <CloseButton />
-      <PhotoDetail photo={photo} prevId={prevId} nextId={nextId} />
+      <PhotoDetail
+        photo={photo}
+        prevId={prevId}
+        nextId={nextId}
+        showArrows={true}
+      />
     </div>
   );
 }
