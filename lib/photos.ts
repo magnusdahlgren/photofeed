@@ -69,8 +69,8 @@ export async function getPrevPhotoIdByCreatedAt(currentDate: string): Promise<{
   const { data: prev } = await supabase
     .from("photos")
     .select("id")
-    .lt("created_at", currentDate)
-    .order("created_at", { ascending: false })
+    .gt("created_at", currentDate)
+    .order("created_at", { ascending: true })
     .limit(1);
   return { prevId: prev?.[0]?.id ?? null };
 }
@@ -81,8 +81,8 @@ export async function getNextPhotoIdByCreatedAt(currentDate: string): Promise<{
   const { data: next } = await supabase
     .from("photos")
     .select("id")
-    .gt("created_at", currentDate)
-    .order("created_at", { ascending: true })
+    .lt("created_at", currentDate)
+    .order("created_at", { ascending: false })
     .limit(1);
 
   return { nextId: next?.[0]?.id ?? null };
