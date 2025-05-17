@@ -5,6 +5,16 @@ import {
   getPhotoById,
   getPrevPhotoIdByCreatedAt,
 } from "@/lib/photos";
+import { Photo } from "@/types/photo";
+
+async function fetchPhotoData(id: string) {
+  const photo: Photo = await getPhotoById(id);
+  const [prevId, nextId] = await Promise.all([
+    getPrevPhotoIdByCreatedAt(photo.created_at).then((res) => res.prevId),
+    getNextPhotoIdByCreatedAt(photo.created_at).then((res) => res.nextId),
+  ]);
+  return { photo, prevId, nextId };
+}
 
 export default async function Page({
   params,
@@ -12,9 +22,7 @@ export default async function Page({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const photo = await getPhotoById(id);
-  const { prevId } = await getPrevPhotoIdByCreatedAt(photo.created_at);
-  const { nextId } = await getNextPhotoIdByCreatedAt(photo.created_at);
+  const { photo, prevId, nextId } = await fetchPhotoData(id);
 
   return (
     <div className="photo-modal">
