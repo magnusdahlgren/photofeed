@@ -20,6 +20,9 @@ header h1 {
 
 img.logo {
   height: 8rem;
+  width: auto;
+  display: block;
+  object-fit: contain;
 }
 
 @media (max-width: 600px) {

@@ -3,6 +3,7 @@ import { UserMenuWithSignIn } from "@/components/UserMenuWithSignIn";
 import type { Photo } from "@/types/photo";
 import ErrorMessage from "@/components/ErrorMessage";
 import PhotoFeed from "@/components/PhotoFeed";
+import Image from "next/image";
 
 export default async function Home() {
   const { data, error } = await supabase
@@ -17,10 +18,13 @@ export default async function Home() {
   return (
     <main>
       <header>
-        <img
+        <Image
           src="/images/magnus.png"
+          alt="Magnus logo"
           className="logo"
-          alt="AI line art drawing of Magnus"
+          width={150}
+          height={225}
+          priority
         />
         <h1>Magnus×365</h1>
         <UserMenuWithSignIn />

@@ -17,9 +17,9 @@ export function AlertDialog({
 
   useEffect(() => {
     const dialog = ref.current;
-    if (!dialog) return;
+    if (!dialog || !message) return;
 
-    if (message && !dialog.open) {
+    if (!dialog.open) {
       dialog.showModal();
     }
 
