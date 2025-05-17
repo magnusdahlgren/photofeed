@@ -2,7 +2,7 @@
 
 import { Photo } from '@/types/photo';
 import { addPhoto } from '@/lib/photos';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { SpinnerIcon } from '@/components/SpinnerIcon';
 
 interface AddPhotoButtonProps {
@@ -12,8 +12,11 @@ interface AddPhotoButtonProps {
 
 export function AddPhotoButton({ setPhotos, setAlertMessage }: Readonly<AddPhotoButtonProps>) {
   const [isUploading, setIsUploading] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   async function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
+    if (isUploading) return;
+
     try {
       const file = e.target.files?.[0];
 
@@ -33,27 +36,36 @@ export function AddPhotoButton({ setPhotos, setAlertMessage }: Readonly<AddPhoto
     }
   }
 
+  function triggerFileInputClick() {
+    fileInputRef.current?.click();
+  }
+
   return (
-    <label
-      className={`primary-button add-photo-button ${isUploading ? 'disabled' : ''}`}
-      aria-busy={isUploading}
-    >
-      <span>
-        {isUploading ? (
-          <>
-            <SpinnerIcon /> Uploading...
-          </>
-        ) : (
-          '+ Add photo'
-        )}
-      </span>
+    <>
+      <button
+        className={`primary-button add-photo-button ${isUploading ? 'disabled' : ''}`}
+        aria-busy={isUploading}
+        disabled={isUploading}
+        onClick={triggerFileInputClick}
+      >
+        <span>
+          {isUploading ? (
+            <>
+              <SpinnerIcon /> Uploading...
+            </>
+          ) : (
+            '+ Add photo'
+          )}
+        </span>
+      </button>
       <input
+        ref={fileInputRef}
         type="file"
         accept="image/*"
         onChange={handleFileChange}
         style={{ display: 'none' }}
-        disabled={isUploading}
+        aria-label="Upload a photo"
       />
-    </label>
+    </>
   );
 }
