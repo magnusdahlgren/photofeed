@@ -8,7 +8,6 @@ export function useRedirectIfSignedOut(): { isLoading: boolean } {
 
   useEffect(() => {
     async function check() {
-      setIsLoading(true);
       try {
         const {
           data: { user },
