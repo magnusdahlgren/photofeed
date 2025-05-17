@@ -49,6 +49,10 @@ export default async function PhotoPage({
     const { prevId } = await getPrevPhotoIdByCreatedAt(photo.created_at);
     const { nextId } = await getNextPhotoIdByCreatedAt(photo.created_at);
 
+    if (!photo) {
+      notFound();
+    }
+
     return (
       <main>
         <Link href="/" className="back-button" aria-label="Go back" />
