@@ -46,12 +46,12 @@ export default async function PhotoPage({
 
   try {
     const photo = await getPhotoById(id);
-    const { prevId } = await getPrevPhotoIdByCreatedAt(photo.created_at);
-    const { nextId } = await getNextPhotoIdByCreatedAt(photo.created_at);
-
     if (!photo) {
       notFound();
     }
+
+    const { prevId } = await getPrevPhotoIdByCreatedAt(photo.created_at);
+    const { nextId } = await getNextPhotoIdByCreatedAt(photo.created_at);
 
     return (
       <main>

@@ -25,7 +25,6 @@ export default async function Home() {
           width={150}
           height={225}
           priority
-          style={{ objectFit: "contain" }}
         />
         <h1>Magnus×365</h1>
         <UserMenuWithSignIn />
